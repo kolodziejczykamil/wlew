@@ -14,6 +14,7 @@ Wynik:
 import datetime as dt
 import hashlib
 import io
+import os
 import json
 import re
 import subprocess
@@ -47,7 +48,10 @@ def pobierz_plik(url, cel):
     # curl zamiast urllib: działa z systemowymi certyfikatami na macOS
     cel.parent.mkdir(parents=True, exist_ok=True)
     tmp = cel.with_suffix(cel.suffix + ".part")
-    subprocess.run(["curl", "-sSfL", "--max-time", "180", "-A", UA["User-Agent"], "-o", str(tmp), url], check=True)
+    subprocess.run(
+        ["curl", "-sSfL", "--max-time", "180", "--retry", "2", "--retry-delay", "5", "-A", UA["User-Agent"], "-o", str(tmp), url],
+        check=True,
+    )
     tmp.replace(cel)
 
 
@@ -210,16 +214,25 @@ def main():
         if karta.get("rpl") and not meta:
             print(f"  ! {karta['id']}: produktu {karta['rpl']} nie ma już w rejestrze")
         wpis = dict(meta=meta, chplUrl=url, sekcje={}, hash=None, dataChpl=None, zamienniki=[])
-        if url:
-            pdf = CACHE / "chpl" / (f"{karta['rpl']}.pdf" if meta else f"{karta['id']}.pdf")
-            if odswiez or not pdf.exists():
+        stary = stare_zrodla.get(karta["id"]) or {}
+        pdf = CACHE / "chpl" / (f"{karta['rpl']}.pdf" if meta else f"{karta['id']}.pdf")
+        if url and (odswiez or not pdf.exists()):
+            try:
                 pobierz_plik(url, pdf)
                 time.sleep(0.3)
+            except subprocess.CalledProcessError as e:
+                # np. strona EMA blokuje serwery GitHuba – zostaje poprzednia kopia albo poprzednie fragmenty
+                bledy.append(f"{karta['id']}: nie udało się pobrać ChPL (curl {e.returncode})")
+                print(f"  ! {karta['id']}: nie udało się pobrać ChPL – zostają poprzednie dane")
+        if url and not pdf.exists():
+            wpis.update(hash=stary.get("hash"), sekcje=stary.get("sekcje", {}), dataChpl=stary.get("dataChpl"))
+            if meta:
+                wpis["zamienniki"] = zamienniki(meta, po_substancji)
+        elif url:
             wpis["hash"] = hashlib.sha256(pdf.read_bytes()).hexdigest()[:16]
             try:
                 wpis["sekcje"], wpis["dataChpl"] = wytnij_sekcje(tekst_pdf(pdf))
             except Exception as e:  # jeden uszkodzony PDF nie może zatrzymać całej aktualizacji
-                stary = stare_zrodla.get(karta["id"]) or {}
                 wpis["sekcje"], wpis["dataChpl"] = stary.get("sekcje", {}), stary.get("dataChpl")
                 bledy.append(f"{karta['id']}: {e}")
                 print(f"  ! {karta['id']}: nie udało się odczytać PDF ({e}) – zostają poprzednie fragmenty")
@@ -255,12 +268,15 @@ def main():
         json.dumps(dict(stan=stan, produkty=indeks_rejestru(po_id)), ensure_ascii=False, separators=(",", ":")), "utf-8"
     )
     leki_plik.write_text(
-        json.dumps(dict(stanBazy=stan, wygenerowano=dt.date.today().isoformat(), leki=karty), ensure_ascii=False, indent=1),
+        json.dumps(dict(stanBazy=stan, wygenerowano=dt.date.today().isoformat(), leki=karty), ensure_ascii=False, indent=1) + "\n",
         "utf-8",
     )
     print(f"Zapisano {len(karty)} kart → {leki_plik.relative_to(ROOT)}")
     if bledy:
-        print(f"Uwaga: {len(bledy)} PDF nie dało się odczytać:\n  " + "\n  ".join(bledy))
+        print(f"Uwaga: {len(bledy)} problem(y) z ChPL:\n  " + "\n  ".join(bledy))
+        if os.environ.get("GITHUB_ACTIONS"):
+            for b in bledy:
+                print(f"::warning title=ChPL::{b}")  # widoczne jako żółte ostrzeżenie w GitHub Actions
 
 
 if __name__ == "__main__":
