@@ -8,6 +8,4 @@ export const CONFIG = {
   ostrzezenieDni: 90,
   // Wersja tekstu zgody – zmiana wymusza ponowne potwierdzenie.
   wersjaZgody: 1,
-  // Publikacja z panelu admina: plik z kartami w repozytorium na GitHubie.
-  github: { repo: "kolodziejczykamil/wlew", galaz: "main", plik: "app/data/leki.json" },
 };

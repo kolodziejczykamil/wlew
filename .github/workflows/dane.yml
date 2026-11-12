@@ -8,7 +8,7 @@ name: Dane leków
 on:
   push:
     branches: [main]
-    paths: [app/data/leki.json, tools/**]
+    paths: [app/data/leki.json, tools/**, requirements.txt]
   schedule:
     - cron: "0 4 * * 1"
   workflow_dispatch:
@@ -36,7 +36,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pypdf==5.1.0
+      - run: pip install -r requirements.txt
 
       - name: Tydzień (klucz pamięci podręcznej rejestru)
         id: tydzien

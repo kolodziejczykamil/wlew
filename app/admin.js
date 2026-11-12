@@ -1,7 +1,8 @@
 // Panel admina: zarządzanie listą leków i kartami.
-// Zmiany trzymane są w przeglądarce jako kopia robocza, a „Opublikuj” zapisuje je w repozytorium na GitHubie
+// Wymaga zalogowania (login + hasło, backend w /functions/api). Zmiany trzymane są w przeglądarce jako kopia
+// robocza, a „Opublikuj” wysyła je na serwer, który zapisuje je w repozytorium z podpisem osoby
 // (GitHub Actions dociąga ChPL, Cloudflare Pages publikuje nową wersję aplikacji).
-import * as gh from "./github.js";
+import * as api from "./api.js";
 import { ic } from "./ikony.js";
 import { dataPL, esc, maTresc, norm, renderKarta, STATUSY } from "./karta.js";
 
@@ -14,7 +15,7 @@ function nowyEkran(klasa) {
   APP = nowy;
   APP.className = klasa;
 }
-const LS = { baza: "wlew.admin.baza", base: "wlew.admin.base", baseSha: "wlew.admin.baseSha", kto: "wlew.admin.kto" };
+const LS = { baza: "wlew.admin.baza", base: "wlew.admin.base", baseSha: "wlew.admin.baseSha" };
 const ls = {
   get: (k) => { try { return localStorage.getItem(k); } catch { return null; } },
   set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* pełna pamięć */ } },
@@ -36,11 +37,14 @@ let BASE = null, baseSha = null;   // wersja, od której zaczęła się edycja (
 let publikacja = { trwa: false, komunikat: null, blad: null };
 let polaczenie = { ok: false, blad: null };
 
-// ---------- dane ----------
-// Najświeższa wersja: z repozytorium (gdy jest klucz), inaczej z opublikowanej strony.
+// ---------- logowanie i dane ----------
+// JA: zalogowana osoba | null (pokaż logowanie) | {brakSerwera} (np. lokalny serwer plików – tryb bez publikacji)
+const JA = await api.ja();
+const LOKALNIE = !!JA?.brakSerwera;
+// Najświeższa wersja: z repozytorium przez serwer, a gdy się nie da – z opublikowanej strony.
 let zSerwera = null;
-if (gh.token.get()) {
-  try { const r = await gh.pobierz(gh.token.get()); zSerwera = r.dane; baseSha = r.sha; polaczenie.ok = true; }
+if (JA && !LOKALNIE) {
+  try { const r = await api.pobierz(); zSerwera = r.dane; baseSha = r.sha; polaczenie.ok = true; }
   catch (e) { polaczenie.blad = e.message; }
 }
 if (!zSerwera) zSerwera = await (await fetch("data/leki.json", { cache: "no-cache" })).json();
@@ -66,7 +70,7 @@ async function rejestr() {
 }
 const karta = (id) => BAZA.leki.find((k) => k.id === id);
 const dzis = () => new Date().toISOString().slice(0, 10);
-const kto = () => (ls.get(LS.kto) || "").trim();
+const kto = () => (JA && !LOKALNIE ? JA.imie : "");
 
 function zapiszKopie() {
   if (!brudne) { ls.set(LS.base, JSON.stringify(BASE)); baseSha ? ls.set(LS.baseSha, baseSha) : ls.del(LS.baseSha); }
@@ -128,8 +132,9 @@ function ekranLista() {
   APP.innerHTML = `
     ${pasek("Panel <span style='color:var(--ink-3);font-weight:500'>· Wlew</span>", { prawa: `<a class="icon-btn" href="index.html" target="_blank" rel="noopener" aria-label="Otwórz aplikację">${ic("oko")}</a>` })}
     <div class="pad stack">
-      ${brudne ? `<div class="notice n-warn">${ic("uwaga")}<div>Masz nieopublikowane zmiany (${gh.podsumuj(BASE, BAZA).ile}). <a href="#plik">Opublikuj</a></div></div>` : ""}
-      ${polaczenie.blad ? `<div class="notice n-danger">${ic("uwaga")}<div>Nie udało się połączyć z GitHubem: ${esc(polaczenie.blad)} <a href="#plik">Ustawienia</a></div></div>` : ""}
+      ${brudne ? `<div class="notice n-warn">${ic("uwaga")}<div>Masz nieopublikowane zmiany (${api.podsumuj(BASE, BAZA).ile}). <a href="#plik">Opublikuj</a></div></div>` : ""}
+      ${polaczenie.blad ? `<div class="notice n-danger">${ic("uwaga")}<div>Nie udało się pobrać najnowszej wersji z serwera: ${esc(polaczenie.blad)} Pokazuję wersję z aplikacji.</div></div>` : ""}
+      ${LOKALNIE ? `<div class="notice n-info">${ic("info")}<div>Tryb lokalny bez serwera – możesz edytować, ale publikacja działa dopiero na Cloudflare.</div></div>` : ""}
       <div class="stat-row">
         <div class="stat"><b>${ile("ok")}</b><span>sprawdzone</span></div>
         <div class="stat"><b>${ile("szkic")}</b><span>szkice</span></div>
@@ -275,7 +280,7 @@ function akcje(k) {
       <button class="btn btn-secondary btn-block" type="button" data-cofnij>Cofnij zatwierdzenie</button>`;
   }
   const moze = maTresc(k) && kto() && k.status !== "brak-chpl";
-  const powod = !kto() ? `Ustaw swoje imię i nazwisko w zakładce <a href="#plik">Publikuj</a>.` : !maTresc(k) ? "Uzupełnij kartę, żeby ją zatwierdzić." : k.status === "brak-chpl" ? "Kart bez ChPL nie zatwierdzamy." : "Zatwierdź dopiero po porównaniu każdego punktu z ChPL.";
+  const powod = !kto() ? "Zatwierdzanie działa po zalogowaniu na serwerze." : !maTresc(k) ? "Uzupełnij kartę, żeby ją zatwierdzić." : k.status === "brak-chpl" ? "Kart bez ChPL nie zatwierdzamy." : "Zatwierdź dopiero po porównaniu każdego punktu z ChPL.";
   return `<button class="btn btn-primary btn-block" type="button" data-zatwierdz ${moze ? "" : "disabled"}>${ic("ok")}Sprawdziłem z ChPL, zatwierdź</button><p class="hint">${powod}</p>`;
 }
 
@@ -407,30 +412,55 @@ function ekranFormularzaNowego() {
   $("#nSub").focus();
 }
 
+// ---------- ekran: logowanie ----------
+function ekranLogowania(blad = "") {
+  document.querySelector(".tabbar").hidden = true;
+  nowyEkran("shell pad welcome");
+  APP.innerHTML = `
+    <img class="mark" src="ikona.svg" alt="">
+    <h1>Panel Wlew</h1>
+    <p class="lead">Zaloguj się, żeby zarządzać listą leków.</p>
+    <form class="stack" id="logowanie" novalidate>
+      ${blad ? `<div class="notice n-danger">${ic("uwaga")}<div>${esc(blad)}</div></div>` : ""}
+      <label class="field"><span class="label">Login</span><input class="input" id="login" autocomplete="username" autocapitalize="off" spellcheck="false" required></label>
+      <label class="field"><span class="label">Hasło</span><input class="input" id="haslo" type="password" autocomplete="current-password" required></label>
+      <button class="btn btn-primary btn-block" type="submit" id="zaloguj">Zaloguj</button>
+    </form>
+    <p class="small">Nie masz konta albo nie pamiętasz hasła? Napisz do Kamila.</p>`;
+  $("#login").focus();
+  $("#logowanie").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const login = $("#login").value.trim(), haslo = $("#haslo").value;
+    if (!login || !haslo) return;
+    $("#zaloguj").disabled = true; $("#zaloguj").textContent = "Loguję…";
+    try { await api.zaloguj(login, haslo); location.reload(); }
+    catch (err) { ekranLogowania(err.message); }
+  });
+}
+
 // ---------- ekran: publikacja ----------
 async function opublikuj() {
-  const t = gh.token.get();
   publikacja = { trwa: true, komunikat: null, blad: null }; ekranPlik();
   try {
     for (let proba = 0; proba < 2; proba++) {
-      const { sha, dane: zdalna } = await gh.pobierz(t);
+      const { sha, dane: zdalna } = await api.pobierz();
       let doZapisu = BAZA, nadpisane = [];
-      if (sha !== baseSha) ({ wynik: doZapisu, nadpisane } = gh.scal(BASE, BAZA, zdalna));
-      const opis = gh.podsumuj(zdalna, doZapisu);
+      if (sha !== baseSha) ({ wynik: doZapisu, nadpisane } = api.scal(BASE, BAZA, zdalna));
+      const opis = api.podsumuj(zdalna, doZapisu);
       if (!opis.ile) { BASE = zdalna; baseSha = sha; BAZA = structuredClone(zdalna); wyczyscKopie(); publikacja = { trwa: false, komunikat: "Nie było nic do opublikowania.", blad: null }; break; }
       try {
-        const nowySha = await gh.zapisz(t, doZapisu, sha, `Panel: ${opis.tekst} (${kto() || "bez podpisu"})`);
+        const nowySha = await api.zapisz(doZapisu, sha, opis.tekst);
         BASE = doZapisu; baseSha = nowySha; BAZA = structuredClone(doZapisu); wyczyscKopie();
         const g = new Date().toLocaleTimeString("pl-PL", { hour: "2-digit", minute: "2-digit" });
         publikacja = { trwa: false, blad: null, komunikat: `Opublikowano o ${g}: ${opis.tekst}. Aplikacja zaktualizuje się w ciągu 1–3 minut.`
           + (nadpisane.length ? ` Uwaga: w międzyczasie ktoś zmienił też: ${nadpisane.join(", ")} – zostały Twoje wersje.` : "") };
         break;
       } catch (e) {
-        if (!e.konflikt || proba === 1) throw e; // ktoś zapisał w tej samej sekundzie – spróbuj jeszcze raz
+        if (!e.konflikt || proba === 1) throw e; // ktoś zapisał w tej samej chwili – spróbuj jeszcze raz
       }
     }
   } catch (e) {
-    publikacja = { trwa: false, komunikat: null, blad: e.message };
+    publikacja = { trwa: false, komunikat: null, blad: e.status === 401 ? "Sesja wygasła. Zaloguj się ponownie – Twoje zmiany są zachowane w tej przeglądarce." : e.message, wyloguj: e.status === 401 };
   }
   ekranPlik();
 }
@@ -438,48 +468,38 @@ async function opublikuj() {
 function ekranPlik() {
   zakladki("plik");
   nowyEkran("shell");
-  const t = gh.token.get();
-  const zm = gh.podsumuj(BASE, BAZA);
+  const zm = api.podsumuj(BASE, BAZA);
   APP.innerHTML = `
     ${pasek("Publikacja")}
     <div class="pad stack">
       <section class="group">
         <h3 class="group-title">Opublikuj zmiany</h3>
-        ${publikacja.komunikat ? `<div class="notice n-ok">${ic("ok")}<div>${esc(publikacja.komunikat)} <a href="${gh.linkAkcji}" target="_blank" rel="noopener">Postęp</a></div></div>` : ""}
-        ${publikacja.blad ? `<div class="notice n-danger">${ic("uwaga")}<div>${esc(publikacja.blad)}</div></div>` : ""}
+        ${publikacja.komunikat ? `<div class="notice n-ok">${ic("ok")}<div>${esc(publikacja.komunikat)}</div></div>` : ""}
+        ${publikacja.blad ? `<div class="notice n-danger">${ic("uwaga")}<div>${esc(publikacja.blad)}${publikacja.wyloguj ? ` <a href="#" id="zalogujPonownie">Zaloguj</a>` : ""}</div></div>` : ""}
         ${brudne ? `<div class="notice n-warn">${ic("uwaga")}<div>Nieopublikowane: ${esc(zm.tekst)}.</div></div>` : (publikacja.komunikat ? "" : `<p class="small">Wszystkie zmiany są opublikowane.</p>`)}
-        ${t
-          ? `<button class="btn btn-primary btn-block" type="button" id="publikuj" ${brudne && !publikacja.trwa ? "" : "disabled"}>${ic("wgraj")}${publikacja.trwa ? "Publikuję…" : "Opublikuj"}</button>
-             <p class="hint">Zmiany trafią do repozytorium z Twoim podpisem. <a href="${gh.linkHistorii}" target="_blank" rel="noopener">Historia zmian</a></p>`
-          : `<p class="hint">Żeby publikować, połącz panel z GitHubem poniżej.</p>`}
+        ${LOKALNIE
+          ? `<p class="hint">Publikacja działa na stronie w Cloudflare, nie na lokalnym serwerze.</p>`
+          : `<button class="btn btn-primary btn-block" type="button" id="publikuj" ${brudne && !publikacja.trwa ? "" : "disabled"}>${ic("wgraj")}${publikacja.trwa ? "Publikuję…" : "Opublikuj"}</button>
+             <p class="hint">Po opublikowaniu wszyscy zobaczą zmiany w aplikacji. Każda publikacja jest zapisywana w historii z Twoim imieniem.</p>`}
+      </section>
+
+      ${JA && !LOKALNIE ? `<section class="group">
+        <h3 class="group-title">Konto</h3>
+        <p style="margin:0">Zalogowano jako <b>${esc(JA.imie)}</b></p>
+        <button class="btn btn-secondary btn-block" type="button" id="wyloguj">Wyloguj</button>
+      </section>` : ""}
+
+      <section class="group">
+        <details class="more"><summary>Kopia zapasowa</summary>
+          <div class="stack" style="margin-top:10px">
+            <button class="btn btn-secondary btn-block" type="button" id="eksport">${ic("pobierz")}Pobierz plik z lekami</button>
+            <label class="btn btn-secondary btn-block" for="import">${ic("wgraj")}Wczytaj plik z lekami</label>
+            <input type="file" id="import" accept=".json,application/json" hidden>
+          </div>
+        </details>
       </section>
 
       <section class="group">
-        <h3 class="group-title">Kto sprawdza karty</h3>
-        <label class="field"><span class="label">Imię i nazwisko (zapisywane przy zatwierdzeniu i publikacji)</span><input class="input" id="kto" value="${esc(kto())}" autocomplete="name"></label>
-      </section>
-
-      <section class="group">
-        <h3 class="group-title">Połączenie z GitHubem</h3>
-        ${t
-          ? `${polaczenie.blad ? `<div class="notice n-danger">${ic("uwaga")}<div>${esc(polaczenie.blad)}</div></div>` : `<div class="notice n-ok">${ic("ok")}<div>Połączono z repozytorium ${esc(gh.linkAkcji.split("/").slice(3, 5).join("/"))}.</div></div>`}
-             <button class="btn btn-ghost btn-block" type="button" id="odlacz">Odłącz ten telefon / komputer</button>`
-          : `<label class="field"><span class="label">Klucz dostępu (token)</span><input class="input" id="token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…"></label>
-             <button class="btn btn-primary btn-block" type="button" id="polacz">Połącz</button>
-             <details class="more"><summary>Jak zdobyć klucz</summary><ul>
-               <li>Zaloguj się na GitHub (musisz mieć dostęp do repozytorium).</li>
-               <li>Wejdź na github.com/settings/personal-access-tokens/new.</li>
-               <li>Repository access: <b>Only select repositories</b> → wlew.</li>
-               <li>Permissions → Contents: <b>Read and write</b>.</li>
-               <li>Expiration: np. 90 dni. Skopiuj klucz i wklej go tutaj.</li>
-             </ul><p class="small" style="margin-top:8px">Klucz zostaje tylko w tej przeglądarce. Nie łącz panelu na cudzym komputerze.</p></details>`}
-      </section>
-
-      <section class="group">
-        <h3 class="group-title">Kopia zapasowa</h3>
-        <button class="btn btn-secondary btn-block" type="button" id="eksport">${ic("pobierz")}Pobierz leki.json</button>
-        <label class="btn btn-secondary btn-block" for="import">${ic("wgraj")}Wczytaj leki.json z urządzenia</label>
-        <input type="file" id="import" accept=".json,application/json" hidden>
         ${potwierdzOdrzuc
           ? `<div class="confirm"><b>Odrzucić wszystkie nieopublikowane zmiany?</b><span>Wrócisz do ostatniej opublikowanej wersji. Tego nie da się cofnąć.</span>
              <div class="btns"><button class="btn btn-secondary" type="button" id="odrzucNie">Anuluj</button><button class="btn btn-danger" type="button" id="odrzucTak">Odrzuć</button></div></div>`
@@ -487,26 +507,14 @@ function ekranPlik() {
       </section>
       <p class="small">Baza z dnia ${esc(dataPL(BAZA.stanBazy))} · leków na liście: ${BAZA.leki.length}</p>
     </div>`;
-  $("#kto").addEventListener("input", (e) => ls.set(LS.kto, e.target.value.trim()));
   $("#publikuj")?.addEventListener("click", opublikuj);
-  $("#polacz")?.addEventListener("click", async () => {
-    const v = $("#token").value.trim();
-    if (!v) return;
-    $("#polacz").disabled = true; $("#polacz").textContent = "Sprawdzam…";
-    try {
-      await gh.sprawdz(v);
-      gh.token.set(v); polaczenie = { ok: true, blad: null };
-      if (!brudne) { const r = await gh.pobierz(v); BASE = r.dane; baseSha = r.sha; BAZA = structuredClone(r.dane); }
-      toast("Połączono z GitHubem");
-    } catch (e) { polaczenie = { ok: false, blad: null }; toast(e.message); }
-    ekranPlik();
-  });
-  $("#odlacz")?.addEventListener("click", () => { gh.token.set(""); polaczenie = { ok: false, blad: null }; toast("Odłączono"); ekranPlik(); });
+  $("#zalogujPonownie")?.addEventListener("click", (e) => { e.preventDefault(); ekranLogowania(); });
+  $("#wyloguj")?.addEventListener("click", async () => { try { await api.wyloguj(); } catch { /* */ } location.reload(); });
   $("#eksport").addEventListener("click", () => {
     const blob = new Blob([JSON.stringify(BAZA, (key, v) => (key.startsWith("_") ? undefined : v), 1)], { type: "application/json" });
     const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: "leki.json" });
     document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
-    toast("Pobrano leki.json");
+    toast("Pobrano plik z lekami");
   });
   $("#import").addEventListener("change", async (e) => {
     const f = e.target.files[0]; if (!f) return;
@@ -541,5 +549,9 @@ document.querySelector(".tabbar").addEventListener("click", (e) => {
   if (t.dataset.tab === "dodaj") wybranyProdukt = null;
   location.hash = t.dataset.tab;
 });
-window.addEventListener("hashchange", trasa);
-trasa();
+if (JA === null) {
+  ekranLogowania();
+} else {
+  window.addEventListener("hashchange", trasa);
+  trasa();
+}

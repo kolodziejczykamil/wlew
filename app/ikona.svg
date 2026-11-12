@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#1d5bd0"/>
+  <rect width="512" height="512" rx="112" fill="#2e6b73"/>
   <!-- worek infuzyjny -->
   <path d="M176 96h160a24 24 0 0 1 24 24v168a72 72 0 0 1-72 72h-64a72 72 0 0 1-72-72V120a24 24 0 0 1 24-24z" fill="#fff"/>
-  <path d="M152 236h208v52a72 72 0 0 1-72 72h-64a72 72 0 0 1-72-72z" fill="#9cc0ff"/>
+  <path d="M152 236h208v52a72 72 0 0 1-72 72h-64a72 72 0 0 1-72-72z" fill="#a9cfd3"/>
   <rect x="236" y="360" width="40" height="36" fill="#fff"/>
   <rect x="248" y="396" width="16" height="44" rx="8" fill="#fff"/>
-  <rect x="196" y="140" width="72" height="14" rx="7" fill="#1d5bd0"/>
-  <rect x="196" y="172" width="48" height="14" rx="7" fill="#1d5bd0"/>
+  <rect x="196" y="140" width="72" height="14" rx="7" fill="#2e6b73"/>
+  <rect x="196" y="172" width="48" height="14" rx="7" fill="#2e6b73"/>
 </svg>

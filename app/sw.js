@@ -1,7 +1,7 @@
 // Service worker: aplikacja działa bez internetu.
 // Wszystko: najpierw sieć, bez sieci ostatnia zapisana wersja (aktualizacje docierają same).
-const WERSJA = "wlew-v3";
-const POWLOKA = ["./", "index.html", "style.css", "app.js", "karta.js", "ikony.js", "config.js", "manifest.webmanifest", "ikona.svg", "ikona-192.png", "ikona-512.png", "data/leki.json"];
+const WERSJA = "wlew-v4";
+const POWLOKA = ["./", "index.html", "style.css", "app.js", "karta.js", "ikony.js", "config.js", "api.js", "manifest.webmanifest", "ikona.svg", "ikona-192.png", "ikona-512.png", "data/leki.json"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(WERSJA).then((c) => c.addAll(POWLOKA)).then(() => self.skipWaiting()));

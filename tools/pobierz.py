@@ -13,6 +13,7 @@ Wynik:
 """
 import datetime as dt
 import hashlib
+import io
 import json
 import re
 import subprocess
@@ -85,7 +86,11 @@ DATA = re.compile(
 
 
 def tekst_pdf(sciezka):
-    tekst = "\n".join((s.extract_text() or "") for s in PdfReader(sciezka).pages)
+    dane = sciezka.read_bytes()
+    poczatek = dane.find(b"%PDF")  # część plików z rejestru ma metadane XMP przed nagłówkiem PDF
+    if poczatek > 0:
+        dane = dane[poczatek:]
+    tekst = "\n".join((s.extract_text() or "") for s in PdfReader(io.BytesIO(dane)).pages)
     linie = []
     for l in tekst.splitlines():
         l = re.sub(r"[ \t]+", " ", l).rstrip()
@@ -194,6 +199,10 @@ def main():
     else:
         karty = [karta_z_listy(p) for p in LISTA]
 
+    stare_zrodla = {}
+    if (OUT / "zrodla.json").exists():
+        stare_zrodla = json.loads((OUT / "zrodla.json").read_text("utf-8"))
+    bledy = []
     zrodla = {}
     for karta in karty:
         meta = po_id.get(karta.get("rpl")) if karta.get("rpl") else None
@@ -207,7 +216,13 @@ def main():
                 pobierz_plik(url, pdf)
                 time.sleep(0.3)
             wpis["hash"] = hashlib.sha256(pdf.read_bytes()).hexdigest()[:16]
-            wpis["sekcje"], wpis["dataChpl"] = wytnij_sekcje(tekst_pdf(pdf))
+            try:
+                wpis["sekcje"], wpis["dataChpl"] = wytnij_sekcje(tekst_pdf(pdf))
+            except Exception as e:  # jeden uszkodzony PDF nie może zatrzymać całej aktualizacji
+                stary = stare_zrodla.get(karta["id"]) or {}
+                wpis["sekcje"], wpis["dataChpl"] = stary.get("sekcje", {}), stary.get("dataChpl")
+                bledy.append(f"{karta['id']}: {e}")
+                print(f"  ! {karta['id']}: nie udało się odczytać PDF ({e}) – zostają poprzednie fragmenty")
             if meta:
                 wpis["zamienniki"] = zamienniki(meta, po_substancji)
         brak = [s for s in SEKCJE if s not in wpis["sekcje"]]
@@ -244,6 +259,8 @@ def main():
         "utf-8",
     )
     print(f"Zapisano {len(karty)} kart → {leki_plik.relative_to(ROOT)}")
+    if bledy:
+        print(f"Uwaga: {len(bledy)} PDF nie dało się odczytać:\n  " + "\n  ".join(bledy))
 
 
 if __name__ == "__main__":
