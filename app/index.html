@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3f5f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101618" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Ściąga z ChPL: czym i w ile rozcieńczyć lek dożylny.">
+  <title>Wlew</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="ikona.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="ikona-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Pierwsze uruchomienie -->
+  <main id="ekranZgody" class="shell pad welcome" hidden>
+    <img class="mark" src="ikona.svg" alt="">
+    <h1>Wlew</h1>
+    <p class="lead">Czym i w ile rozcieńczyć lek dożylny. Informacje zebrane z Charakterystyk Produktu Leczniczego (ChPL).</p>
+    <ul class="checks" id="listaZasad"></ul>
+    <div class="spacer"></div>
+    <label class="consent" for="zgodaCheck">
+      <input type="checkbox" id="zgodaCheck">
+      <span>Jestem personelem medycznym lub studentem. Rozumiem, że decyzję o podaniu leku podejmuję sam(a), zgodnie ze zleceniem i ChPL.</span>
+    </label>
+    <button class="btn btn-primary btn-block" id="zgodaBtn" type="button" disabled>Rozumiem, przejdź dalej</button>
+  </main>
+
+  <!-- Szukaj / Ulubione / Płyny -->
+  <main id="ekranLista" class="shell" hidden>
+    <div class="topbar pad" id="gornyPasek">
+      <div class="topbar-row">
+        <span class="brand" id="tytulListy">Wlew</span>
+        <span class="subtle" id="stanBazy"></span>
+      </div>
+      <div class="search" id="poleSzukaj">
+        <span id="ikonaSzukaj"></span>
+        <input id="szukaj" type="search" placeholder="Lek lub substancja" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="Szukaj leku">
+      </div>
+      <div id="ostrzezenie" class="notice n-warn" hidden></div>
+    </div>
+    <div class="pad" id="wyniki" aria-live="polite"></div>
+  </main>
+
+  <!-- Karta leku -->
+  <main id="ekranKarta" class="shell" hidden>
+    <div class="topbar pad">
+      <div class="topbar-row">
+        <button class="icon-btn" id="wsteczBtn" type="button" aria-label="Wróć"></button>
+        <span class="bar-title" id="tytulKarty"></span>
+        <button class="icon-btn" id="ulubBtn" type="button" aria-pressed="false" aria-label="Dodaj do ulubionych"></button>
+      </div>
+    </div>
+    <div class="pad stack" id="karta"></div>
+  </main>
+
+  <!-- Informacje -->
+  <main id="ekranInfo" class="shell" hidden>
+    <div class="topbar pad"><div class="topbar-row"><span class="brand">Informacje</span></div></div>
+    <div class="pad stack">
+      <section class="group prose">
+        <h3 class="group-title">O aplikacji</h3>
+        <p>Dane pochodzą z Rejestru Produktów Leczniczych prowadzonego przez Centrum e-Zdrowia oraz z Charakterystyk Produktu Leczniczego. Karty przygotowuje i sprawdza zespół z doświadczeniem na SOR.</p>
+        <p>Aplikacja jest pomocą informacyjną. Nie zastępuje ChPL, zlecenia lekarskiego ani procedur oddziału i nie przelicza dawek dla pacjenta.</p>
+        <p id="infoBaza"></p>
+      </section>
+      <section class="group">
+        <h3 class="group-title">Kolory płynów</h3>
+        <div class="fluids">
+          <span class="fluid f-nacl"><i></i>NaCl 0,9%</span>
+          <span class="fluid f-glu"><i></i>Glukoza</span>
+          <span class="fluid f-ringer"><i></i>Ringer / PWE</span>
+          <span class="fluid f-no"><i></i>Niezgodny</span>
+        </div>
+      </section>
+      <section class="group">
+        <h3 class="group-title">Zgłoś błąd w karcie</h3>
+        <p class="small">Napisz na adres poniżej. Podaj nazwę leku i co jest nie tak.</p>
+        <div class="copy" id="emailBledow"></div>
+        <button class="btn btn-secondary btn-block" id="kopiujEmail" type="button">Kopiuj adres</button>
+      </section>
+    </div>
+  </main>
+
+  <nav class="tabbar" id="tabbar" hidden>
+    <div class="tabbar-in">
+      <button class="tab" data-tab="szukaj" type="button"><span data-ic="szukaj"></span>Szukaj</button>
+      <button class="tab" data-tab="ulubione" type="button"><span data-ic="gwiazdka"></span>Ulubione</button>
+      <button class="tab" data-tab="plyny" type="button"><span data-ic="kropla"></span>Płyny</button>
+      <button class="tab" data-tab="info" type="button"><span data-ic="info"></span>Info</button>
+    </div>
+  </nav>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

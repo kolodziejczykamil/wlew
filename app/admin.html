@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f3f5f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101618" media="(prefers-color-scheme: dark)">
+  <title>Wlew – panel</title>
+  <link rel="icon" href="ikona.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* panel: na szerokim ekranie formularz i ChPL obok siebie */
+    @media (min-width: 1000px) {
+      .shell.wide { max-width: 1180px; }
+      .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+      .split > .side { position: sticky; top: 76px; max-height: calc(100vh - 160px); overflow-y: auto; }
+      .only-narrow { display: none !important; }
+    }
+    @media (max-width: 999px) { .only-wide, .hide-narrow { display: none !important; } }
+    .shell.has-actionbar { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
+    .product { display: flex; flex-direction: column; gap: 2px; }
+    .product b { font-size: 0.98rem; }
+    .product span { font-size: 0.84rem; color: var(--ink-2); }
+    .row.dim { opacity: 0.55; }
+  </style>
+</head>
+<body>
+  <main id="app" class="shell"></main>
+  <nav class="tabbar">
+    <div class="tabbar-in">
+      <button class="tab" data-tab="lista" type="button"><span data-ic="lista"></span>Leki</button>
+      <button class="tab" data-tab="dodaj" type="button"><span data-ic="plus"></span>Dodaj</button>
+      <button class="tab" data-tab="plik" type="button"><span data-ic="wgraj"></span>Publikuj</button>
+    </div>
+  </nav>
+  <div class="toast" id="toast" hidden></div>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

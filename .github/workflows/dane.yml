@@ -1,0 +1,72 @@
+# Aktualizacja danych leków.
+# - po każdej publikacji z panelu (zmiana app/data/leki.json): dociąga ChPL dla nowych leków i odświeża metadane,
+# - co poniedziałek: pobiera rejestr i wszystkie ChPL od nowa; karty ze zmienioną ChPL dostają status "Zmiana ChPL",
+# - ręcznie: zakładka Actions → "Dane leków" → Run workflow.
+# Commit robiony tokenem GITHUB_TOKEN nie uruchamia tego workflow ponownie (brak pętli).
+name: Dane leków
+
+on:
+  push:
+    branches: [main]
+    paths: [app/data/leki.json, tools/**]
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+    inputs:
+      odswiez:
+        description: "Pobrać rejestr i wszystkie ChPL od nowa"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dane-lekow
+  cancel-in-progress: false
+
+jobs:
+  aktualizuj:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pypdf==5.1.0
+
+      - name: Tydzień (klucz pamięci podręcznej rejestru)
+        id: tydzien
+        run: echo "w=$(date -u +%G-%V)" >> "$GITHUB_OUTPUT"
+
+      - name: Pamięć podręczna rejestru i ChPL
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: dane-${{ steps.tydzien.outputs.w }}-${{ hashFiles('app/data/leki.json') }}
+          restore-keys: |
+            dane-${{ steps.tydzien.outputs.w }}-
+
+      - name: Pobierz i przetwórz dane
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.odswiez }}" = "true" ]; then
+            python tools/pobierz.py --odswiez
+          else
+            python tools/pobierz.py
+          fi
+
+      - name: Zapisz zmiany
+        run: |
+          git config user.name "wlew-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/data
+          if git diff --cached --quiet; then
+            echo "Brak zmian w danych."
+          else
+            git commit -m "Dane: aktualizacja z rejestru i ChPL"
+            git pull --rebase origin main
+            git push
+          fi

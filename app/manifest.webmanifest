@@ -1,0 +1,16 @@
+{
+  "name": "Wlew – rozcieńczanie leków iv",
+  "short_name": "Wlew",
+  "description": "Ściąga z ChPL: czym i w ile rozcieńczyć lek dożylny.",
+  "lang": "pl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f1f4f7",
+  "theme_color": "#1d5bd0",
+  "icons": [
+    { "src": "ikona.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "ikona-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "ikona-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

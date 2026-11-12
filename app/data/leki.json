@@ -1,0 +1,2780 @@
+{
+ "stanBazy": "2026-11-12",
+ "wygenerowano": "2026-11-12",
+ "leki": [
+  {
+   "id": "adenozyna",
+   "typ": "lek",
+   "rpl": 298,
+   "chplWlasny": null,
+   "nazwa": "Adenocor",
+   "substancja": "Adenozyna",
+   "aliasy": "",
+   "moc": "3 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/298/characteristic",
+    "pozwolenie": "03747",
+    "podmiot": "Sanofi Winthrop Industrie",
+    "hash": "7d945c9af5666e36",
+    "dataChpl": "07/2023",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Adenosine Kabi 3 mg/ml"
+   ]
+  },
+  {
+   "id": "adrenalina",
+   "typ": "lek",
+   "rpl": 3065,
+   "chplWlasny": null,
+   "nazwa": "Adrenalina WZF 0,1%",
+   "substancja": "Adrenalina",
+   "aliasy": "epinefryna",
+   "moc": "1 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/3065/characteristic",
+    "pozwolenie": "01825",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "c626b38e4e697b64",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Adrenalina Aguettant 1 mg/10 ml",
+    "Adrenalina Noridem 1 mg/ml"
+   ]
+  },
+  {
+   "id": "alteplaza",
+   "typ": "lek",
+   "rpl": 262,
+   "chplWlasny": null,
+   "nazwa": "Actilyse 50",
+   "substancja": "Alteplaza",
+   "aliasy": "rtpa tromboliza",
+   "moc": "50 mg",
+   "postac": "Proszek i rozpuszczalnik do sporządzania roztworu do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/262/characteristic",
+    "pozwolenie": "00248",
+    "podmiot": "Boehringer Ingelheim International GmbH",
+    "hash": "8efd6e812c399b90",
+    "dataChpl": "1 września 2024",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Actilyse 10 10 mg",
+    "Actilyse 20 20 mg"
+   ]
+  },
+  {
+   "id": "amiodaron",
+   "typ": "lek",
+   "rpl": 1582,
+   "chplWlasny": null,
+   "nazwa": "Cordarone",
+   "substancja": "Amiodaron",
+   "aliasy": "",
+   "moc": "50 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "amp. 3 ml (150 mg)",
+   "plyny": [
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    },
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": false
+    }
+   ],
+   "przygotowanie": [
+    "Wlew nasycający: 5 mg/kg mc. w 250 ml G5%",
+    "Sytuacje nagłe: 150–300 mg w 10–20 ml G5%",
+    "Nie rozcieńczać bardziej niż 300 mg / 500 ml (roztwór niestabilny)"
+   ],
+   "tempo": [
+    "Wlew nasycający: 20 min – 2 h",
+    "Wstrzyknięcie: co najmniej 3 min, kolejne nie wcześniej niż po 15 min"
+   ],
+   "uwagi": [
+    {
+     "tekst": "TYLKO glukoza 5%. Z solą fizjologiczną niezgodny.",
+     "wazne": true
+    },
+    {
+     "tekst": "Wlew ciągły lub powtarzany przez dostęp centralny. Tylko z monitorowaniem EKG.",
+     "wazne": false
+    },
+    {
+     "tekst": "Nie mieszać z innymi lekami w tej samej strzykawce.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1582/characteristic",
+    "pozwolenie": "01636",
+    "podmiot": "Sanofi Winthrop Industrie",
+    "hash": "3e4cd12b537d237d",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Amiokordin 50 mg/ml",
+    "Amiodaron hameln 50 mg/ml",
+    "Amiodaron Accord 30 mg/ml"
+   ]
+  },
+  {
+   "id": "amoksycylina-klawulanian",
+   "typ": "lek",
+   "rpl": 520,
+   "chplWlasny": null,
+   "nazwa": "Amoksiklav",
+   "substancja": "Amoksycylina z kwasem klawulanowym",
+   "aliasy": "augmentin amoksiklav taromentin",
+   "moc": "1000 mg + 200 mg",
+   "postac": "Proszek do sporządzania roztworu do wstrzykiwań i infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Augmentin w postaci dożylnej nie figuruje w RPL. Wybrano Amoksiklav 1000 mg + 200 mg.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/520/characteristic",
+    "pozwolenie": "03529",
+    "podmiot": "Sandoz GmbH",
+    "hash": "e642fc8d1c653f70",
+    "dataChpl": "20.02.2026",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Taromentin 500 mg + 100 mg",
+    "Taromentin 1000 mg + 200 mg",
+    "Amoksiklav 500 mg + 100 mg",
+    "Taromentin 2000 mg + 200 mg",
+    "Amoxicillin/Clavulanic Acid Kabi 1000 mg + 200 mg",
+    "Amoxicillin/Clavulanic Acid Kabi 2000 mg + 200 mg",
+    "Amoxicillin + clavulanic acid AptaPharma 1000 mg + 200 mg"
+   ]
+  },
+  {
+   "id": "antazolina",
+   "typ": "lek",
+   "rpl": 13020,
+   "chplWlasny": null,
+   "nazwa": "Phenazolinum",
+   "substancja": "Antazolina",
+   "aliasy": "",
+   "moc": "50 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/13020/characteristic",
+    "pozwolenie": "00934",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "8d22d96d981e3304",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "atropina",
+   "typ": "lek",
+   "rpl": 10007,
+   "chplWlasny": null,
+   "nazwa": "Atropinum sulfuricum WZF",
+   "substancja": "Atropina",
+   "aliasy": "",
+   "moc": "1 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/10007/characteristic",
+    "pozwolenie": "08601",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "43957efd0c8cdf2d",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Atropinum sulfuricum WZF 0,5 mg/ml"
+   ]
+  },
+  {
+   "id": "hioscyna",
+   "typ": "lek",
+   "rpl": 1200,
+   "chplWlasny": null,
+   "nazwa": "Buscolysin",
+   "substancja": "Butylobromek hioscyny",
+   "aliasy": "buscopan",
+   "moc": "20 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1200/characteristic",
+    "pozwolenie": "02866",
+    "podmiot": "Sopharma Warszawa Sp. z o.o.",
+    "hash": "fbbeeb52ffe185ea",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Scopolamine butylbromide Kalceks 20 mg/ml"
+   ]
+  },
+  {
+   "id": "ceftriakson",
+   "typ": "lek",
+   "rpl": 1064,
+   "chplWlasny": null,
+   "nazwa": "Biotrakson",
+   "substancja": "Ceftriakson",
+   "aliasy": "",
+   "moc": "1 g",
+   "postac": "Proszek do sporządzania roztworu do wstrzykiwań lub infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1064/characteristic",
+    "pozwolenie": "00796",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "01e225206dbdba39",
+    "dataChpl": "08.05.2024",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Tartriakson 1 g",
+    "Tartriakson 2 g",
+    "Biotrakson 2 g",
+    "Ceftriaxon-MIP i.v./i.m 1 g 1 g",
+    "Ceftriaxon Kabi 1 g 1 g",
+    "Ceftriaxon-MIP i.v. 2 g 2 g",
+    "Ceftriaxone Kabi 2 g",
+    "Ceftriaxon AptaPharma 1 g",
+    "Ceftriaxon AptaPharma 2 g",
+    "Ceftriaxone TZF 1 g",
+    "Ceftriaxone TZF 2 g",
+    "Ceftriaxone Kalceks 1 g",
+    "Ceftriaxone Kalceks 2 g"
+   ]
+  },
+  {
+   "id": "cefuroksym",
+   "typ": "lek",
+   "rpl": 7432,
+   "chplWlasny": null,
+   "nazwa": "Zinacef",
+   "substancja": "Cefuroksym",
+   "aliasy": "",
+   "moc": "1500 mg",
+   "postac": "Proszek do sporządzania roztworu do wstrzykiwań lub infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/7432/characteristic",
+    "pozwolenie": "00699",
+    "podmiot": "Sandoz GmbH",
+    "hash": "f4d90982b56fe3ea",
+    "dataChpl": "14.06.2024",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Biofuroksym 1,5 g",
+    "Zinacef 750 mg",
+    "Cefuroxim-MIP 750 mg 750 mg",
+    "Biofuroksym 250 mg",
+    "Biofuroksym 500 mg",
+    "Tarsime 1500 mg",
+    "Tarsime 750 mg",
+    "Cefuroxim-MIP 1500 mg 1500 mg",
+    "Cefuroxim Kabi 750 mg",
+    "Cefuroxim Kabi 1500 mg",
+    "Biofuroksym 750 mg",
+    "Cefuroxime TZF 1500 mg",
+    "Cefuroxime TZF 750 mg",
+    "Cefuroxime Dali Pharma 750 mg",
+    "Cefuroxime Dali Pharma 1500 mg"
+   ]
+  },
+  {
+   "id": "kcl",
+   "typ": "lek",
+   "rpl": 3281,
+   "chplWlasny": null,
+   "nazwa": "Kalium chloratum WZF 15%",
+   "substancja": "Chlorek potasu",
+   "aliasy": "kcl potas",
+   "moc": "150 mg/ml",
+   "postac": "Koncentrat do sporządzania roztworu do infuzji",
+   "opakowanie": "amp. 10 ml (20 mmol K⁺) · fiolka 20 ml (40 mmol K⁺)",
+   "plyny": [
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    },
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer z mleczanami",
+     "ok": true
+    }
+   ],
+   "przygotowanie": [
+    "10 ml (20 mmol) rozcieńczyć do 500 ml",
+    "20 ml (40 mmol) rozcieńczyć do 1000 ml",
+    "Stężenie po rozcieńczeniu: 40 mmol/l, dokładnie wymieszać"
+   ],
+   "tempo": [
+    "Max 20 mmol K⁺/h",
+    "Stężenie w infuzji max 40 mmol/l"
+   ],
+   "uwagi": [
+    {
+     "tekst": "Nigdy bez rozcieńczenia, nawet przy dużej hipokaliemii.",
+     "wazne": true
+    },
+    {
+     "tekst": "Nie łączyć m.in. z mannitolem, diazepamem, dobutaminą, metyloprednizolonem, amoksycyliną (pełna lista w pkt 6.2).",
+     "wazne": true
+    },
+    {
+     "tekst": "Przygotować bezpośrednio przed podaniem, zużyć w ciągu 6 h.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.2, 6.6",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/3281/characteristic",
+    "pozwolenie": "02435",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "68a8b16c6ea29e2d",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Kalium chloratum 15% Kabi 150 mg/ml"
+   ]
+  },
+  {
+   "id": "nacl-09",
+   "typ": "plyn",
+   "rpl": 4631,
+   "chplWlasny": null,
+   "nazwa": "Natrium chloratum 0,9% Fresenius",
+   "substancja": "Chlorek sodu 0,9%",
+   "aliasy": "nacl sol fizjologiczna 0,9",
+   "moc": "9 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/4631/characteristic",
+    "pozwolenie": "02510",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "167e93c714553a1d",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Inj. Natrii chlorati 10% Polpharma 100 mg/ml",
+    "0,9% Sodium Chloride-BRAUN 9 mg/ml",
+    "Natrium chloratum 0,9% Baxter 9 mg/ml",
+    "Injectio Natrii chlorati isotonica Polpharma 9 mg/ml",
+    "Natrium chloratum 0,9% Kabi 9 mg/ml",
+    "Sodium Chloride AptaPharma 9 mg/ml"
+   ]
+  },
+  {
+   "id": "cacl2",
+   "typ": "lek",
+   "rpl": 9315,
+   "chplWlasny": null,
+   "nazwa": "Calcium chloratum WZF",
+   "substancja": "Chlorek wapnia",
+   "aliasy": "wapń wapn",
+   "moc": "67 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/9315/characteristic",
+    "pozwolenie": "04771",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "0fd1b9d1a98a669f",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Calcium chloride DEMO 1 g/10 ml",
+    "Calrecia 14,7 g/l",
+    "Icalziss 50 g/l (340 mmol/l Ca2+)"
+   ]
+  },
+  {
+   "id": "cyprofloksacyna",
+   "typ": "lek",
+   "rpl": 1447,
+   "chplWlasny": null,
+   "nazwa": "Ciprinol",
+   "substancja": "Cyprofloksacyna",
+   "aliasy": "cipro",
+   "moc": "10 mg/ml",
+   "postac": "Koncentrat do sporządzania roztworu do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1447/characteristic",
+    "pozwolenie": "00663",
+    "podmiot": "Krka, d.d., Novo mesto",
+    "hash": "221bcc7cdc6364df",
+    "dataChpl": "17.06.2026",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Proxacin 1% 10 mg/ml",
+    "Cipronex 2 mg/ml",
+    "Ciprofloxacin Kabi 100 mg/50 ml roztwór do infuzji 100 mg/50 ml",
+    "Ciprofloxacin Kabi 200 mg/100 ml roztwór do infuzji 200 mg/100 ml",
+    "Ciprofloxacin Kabi 400 mg/200 ml roztwór do infuzji 400 mg/200 ml"
+   ]
+  },
+  {
+   "id": "deksametazon",
+   "typ": "lek",
+   "rpl": 1841,
+   "chplWlasny": null,
+   "nazwa": "Dexaven",
+   "substancja": "Deksametazon",
+   "aliasy": "",
+   "moc": "4 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1841/characteristic",
+    "pozwolenie": "01077",
+    "podmiot": "Bausch Health Ireland Ltd.",
+    "hash": "f5c4cf01f69ef80a",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Demezon 4 mg/ml",
+    "Demezon 8 mg/ml",
+    "Dexamethasone phosphate SF 4 mg/ml",
+    "Dexamethasone Krka 4 mg/ml",
+    "Dexamethasone Krka 8 mg/2 ml",
+    "Dexamethasone hameln 4 mg/ml",
+    "Dexamethasone Kalceks 4 mg/ml",
+    "Covexan 4 mg/ml",
+    "Deksametazon Accord 4 mg/ml",
+    "Dexamethasone Farmak 4 mg/ml"
+   ]
+  },
+  {
+   "id": "deksketoprofen",
+   "typ": "lek",
+   "rpl": 16314,
+   "chplWlasny": null,
+   "nazwa": "Dexak 50",
+   "substancja": "Deksketoprofen",
+   "aliasy": "",
+   "moc": "50 mg",
+   "postac": "Roztwór do wstrzykiwań / do infuzji",
+   "opakowanie": "amp. 2 ml (50 mg)",
+   "plyny": [
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer",
+     "ok": true
+    }
+   ],
+   "przygotowanie": [
+    "Wlew: 1 amp. (2 ml) w 30–100 ml płynu",
+    "Bolus: bez rozcieńczania"
+   ],
+   "tempo": [
+    "Wlew: 10–30 min",
+    "Bolus: powoli, nie krócej niż 15 s"
+   ],
+   "uwagi": [
+    {
+     "tekst": "W strzykawce nie mieszać z dopaminą, prometazyną, pentazocyną, petydyną ani hydroksyzyną (wytrąca się).",
+     "wazne": true
+    },
+    {
+     "tekst": "Roztwór chronić przed światłem dziennym.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.2, 6.3, 6.6",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/16314/characteristic",
+    "pozwolenie": "12356",
+    "podmiot": "Berlin-Chemie AG",
+    "hash": "dfc78c3a27fa382b",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Auxilen 50 mg/2 ml",
+    "Dekenor 50 mg/2 ml",
+    "Dexketoprofen Adamed 50 mg",
+    "Dexketoprofen Sopharma 50mg/ 2ml"
+   ]
+  },
+  {
+   "id": "diazepam",
+   "typ": "lek",
+   "rpl": 5776,
+   "chplWlasny": null,
+   "nazwa": "Relanium",
+   "substancja": "Diazepam",
+   "aliasy": "",
+   "moc": "5 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/5776/characteristic",
+    "pozwolenie": "00937",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "d456cdf521d39add",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Neorelium 5 mg/ml",
+    "Diazepam Grindeks 10 mg/2 ml"
+   ]
+  },
+  {
+   "id": "dobutamina",
+   "typ": "lek",
+   "rpl": 1990,
+   "chplWlasny": null,
+   "nazwa": "Dobutamin Sandoz",
+   "substancja": "Dobutamina",
+   "aliasy": "",
+   "moc": "250 mg",
+   "postac": "Proszek do sporządzania roztworu do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1990/characteristic",
+    "pozwolenie": "03308",
+    "podmiot": "Sandoz GmbH",
+    "hash": "3a6a628569a3ed78",
+    "dataChpl": "16.02.2022",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Dobutamin hameln 5 mg/ml",
+    "Dobutamin hameln 12,5 mg/ml"
+   ]
+  },
+  {
+   "id": "dopamina",
+   "typ": "lek",
+   "rpl": 2035,
+   "chplWlasny": null,
+   "nazwa": "Dopaminum hydrochloricum WZF 4%",
+   "substancja": "Dopamina",
+   "aliasy": "",
+   "moc": "40 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2035/characteristic",
+    "pozwolenie": "01117",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "44c22de209b5ecfb",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Dopaminum hydrochloricum WZF 1% 10 mg/ml"
+   ]
+  },
+  {
+   "id": "drotaweryna",
+   "typ": "lek",
+   "rpl": 4785,
+   "chplWlasny": null,
+   "nazwa": "NO-SPA ampułki",
+   "substancja": "Drotaweryna",
+   "aliasy": "nospa no spa",
+   "moc": "20 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/4785/characteristic",
+    "pozwolenie": "00307",
+    "podmiot": "Opella Healthcare Commercial Ltd.",
+    "hash": "47ef72d7b94ba649",
+    "dataChpl": "06/2023",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "efedryna",
+   "typ": "lek",
+   "rpl": 19175,
+   "chplWlasny": null,
+   "nazwa": "Ephedrinum hydrochloricum WZF",
+   "substancja": "Efedryna",
+   "aliasy": "",
+   "moc": "25 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/19175/characteristic",
+    "pozwolenie": "08723",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "2cd4f38b156ca4a0",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Ephedrinum Hydrochloricum Aguettant 3 mg/ml",
+    "Ephedrine Kabi 3 mg/ml",
+    "Ephedrine Kabi 10 mg/ml",
+    "Ephedrine Kabi 30 mg/ml",
+    "Ephedrinum Hydrochloridum Aguettant 3 mg/ml",
+    "Ephedrinum Hydrochloridum Aguettant 30 mg/ml"
+   ]
+  },
+  {
+   "id": "esmolol",
+   "typ": "lek",
+   "rpl": 19758,
+   "chplWlasny": null,
+   "nazwa": "Esmocard 100 mg/10 ml",
+   "substancja": "Esmolol",
+   "aliasy": "brevibloc esmocard",
+   "moc": "100 mg/10 ml (10 mg/ml)",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Brevibloc nie figuruje w RPL. Wybrano Esmocard 100 mg/10 ml.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/19758/characteristic",
+    "pozwolenie": "14787",
+    "podmiot": "Orpha-Devel Handels und Vertriebs GmbH",
+    "hash": "85efa14dabbaedb5",
+    "dataChpl": "20.08.2020",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "etomidat",
+   "typ": "lek",
+   "rpl": 9054,
+   "chplWlasny": null,
+   "nazwa": "Etomidate-Lipuro",
+   "substancja": "Etomidat",
+   "aliasy": "",
+   "moc": "2 mg/ml",
+   "postac": "Emulsja do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/9054/characteristic",
+    "pozwolenie": "04528",
+    "podmiot": "B. Braun Melsungen AG",
+    "hash": "0382f38bc654fa66",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Hypnomidate 2 mg/ml"
+   ]
+  },
+  {
+   "id": "fentanyl",
+   "typ": "lek",
+   "rpl": 2404,
+   "chplWlasny": null,
+   "nazwa": "Fentanyl WZF",
+   "substancja": "Fentanyl",
+   "aliasy": "",
+   "moc": "50 mcg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2404/characteristic",
+    "pozwolenie": "01039",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "a668ccc9e64ead0f",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Fentanyl Kalceks 0,05 mg/ml"
+   ]
+  },
+  {
+   "id": "flumazenil",
+   "typ": "lek",
+   "rpl": 19501,
+   "chplWlasny": null,
+   "nazwa": "Flumazenil Kabi 0,1 mg/ml roztwór do wstrzykiwań",
+   "substancja": "Flumazenil",
+   "aliasy": "anexate",
+   "moc": "0,1 mg/ml",
+   "postac": "Roztwór do wstrzykiwań, koncentrat do sporządzania roztworu do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Anexate nie figuruje w RPL. Wybrano Flumazenil Kabi 0,1 mg/ml.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/19501/characteristic",
+    "pozwolenie": "14682",
+    "podmiot": "Fresenius Kabi Deutschland GmbH",
+    "hash": "4e91b5eaa3a6b231",
+    "dataChpl": "22.03.2021",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Flumazenil B.Braun 0,1 mg/ml roztwór do wstrzykiwań 0,1 mg/ml",
+    "Flumazenil Pharmaselect 0,1 mg/ml 0,1 mg/ml"
+   ]
+  },
+  {
+   "id": "furosemid",
+   "typ": "lek",
+   "rpl": 2540,
+   "chplWlasny": null,
+   "nazwa": "Furosemidum Polpharma",
+   "substancja": "Furosemid",
+   "aliasy": "",
+   "moc": "10 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "amp. 2 ml (20 mg)",
+   "plyny": [
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer z mleczanami",
+     "ok": true
+    },
+    {
+     "nazwa": "Glukoza",
+     "ok": false
+    }
+   ],
+   "przygotowanie": [
+    "Stężenie po rozcieńczeniu: 0,02–5 mg/ml"
+   ],
+   "tempo": [
+    "Iv max 4 mg/min",
+    "Ciężka niewydolność nerek: max 2,5 mg/min"
+   ],
+   "uwagi": [
+    {
+     "tekst": "Unikać roztworów glukozy: niskie pH może wytrącić furosemid.",
+     "wazne": true
+    },
+    {
+     "tekst": "Nie mieszać w strzykawce z innymi lekami.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.2, 6.6",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2540/characteristic",
+    "pozwolenie": "00451",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "ea297774d950437a",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Furosemide Kabi 20 mg/2 ml",
+    "Furosemid Accord 10 mg/ml",
+    "Furosemid hameln 10 mg/ml",
+    "Furosemide Kalceks 10 mg/ml",
+    "Furosemid Laboratórios Basi 10 mg/ml",
+    "Furosemidum Neupharm 10 mg/ml"
+   ]
+  },
+  {
+   "id": "glukoza-5",
+   "typ": "plyn",
+   "rpl": 2719,
+   "chplWlasny": null,
+   "nazwa": "Glucosum 5% Fresenius",
+   "substancja": "Glukoza 5%",
+   "aliasy": "glukoza g5 glucosum 5",
+   "moc": "50 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2719/characteristic",
+    "pozwolenie": "03400",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "e9d9d7cf157793bc",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Glucosum 20% Fresenius 200 mg/ml",
+    "Glukoza 40 Braun 400 mg/ml",
+    "Glucosum Teva 400 mg/ml",
+    "Glucosum 10% Fresenius 100 mg/ml",
+    "Glukoza 5 Braun 50 mg/ml",
+    "Glukoza 10 Braun 100 mg/ml",
+    "Glukoza 20 Braun 200 mg/ml",
+    "Glucosum Teva 200 mg/ml",
+    "Injectio Glucosi 10% Baxter 100 mg/ml"
+   ]
+  },
+  {
+   "id": "glukoza-10",
+   "typ": "plyn",
+   "rpl": 2711,
+   "chplWlasny": null,
+   "nazwa": "Glucosum 10% Fresenius",
+   "substancja": "Glukoza 10%",
+   "aliasy": "glukoza g10 glucosum 10",
+   "moc": "100 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2711/characteristic",
+    "pozwolenie": "02499",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "04bf31624e7a06fc",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Glucosum 20% Fresenius 200 mg/ml",
+    "Glukoza 40 Braun 400 mg/ml",
+    "Glucosum Teva 400 mg/ml",
+    "Glucosum 5% Fresenius 50 mg/ml",
+    "Glukoza 5 Braun 50 mg/ml",
+    "Glukoza 10 Braun 100 mg/ml",
+    "Glukoza 20 Braun 200 mg/ml",
+    "Glucosum Teva 200 mg/ml",
+    "Injectio Glucosi 10% Baxter 100 mg/ml"
+   ]
+  },
+  {
+   "id": "glukoza-20",
+   "typ": "plyn",
+   "rpl": 798,
+   "chplWlasny": null,
+   "nazwa": "Glucosum 20% Fresenius",
+   "substancja": "Glukoza 20%",
+   "aliasy": "glukoza g20 glucosum 20",
+   "moc": "200 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/798/characteristic",
+    "pozwolenie": "02500",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "b6aba83ce2bc3f6c",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Glukoza 40 Braun 400 mg/ml",
+    "Glucosum Teva 400 mg/ml",
+    "Glucosum 10% Fresenius 100 mg/ml",
+    "Glucosum 5% Fresenius 50 mg/ml",
+    "Glukoza 5 Braun 50 mg/ml",
+    "Glukoza 10 Braun 100 mg/ml",
+    "Glukoza 20 Braun 200 mg/ml",
+    "Glucosum Teva 200 mg/ml",
+    "Injectio Glucosi 10% Baxter 100 mg/ml"
+   ]
+  },
+  {
+   "id": "glukoza-40",
+   "typ": "plyn",
+   "rpl": 2708,
+   "chplWlasny": null,
+   "nazwa": "Glucosum Teva",
+   "substancja": "Glukoza 40%",
+   "aliasy": "glukoza g40 glucosum 40",
+   "moc": "400 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2708/characteristic",
+    "pozwolenie": "02494",
+    "podmiot": "Teva Pharmaceuticals Polska Sp. z o.o.",
+    "hash": "4922c7df524855dd",
+    "dataChpl": "marzec 2022",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Glucosum 20% Fresenius 200 mg/ml",
+    "Glukoza 40 Braun 400 mg/ml",
+    "Glucosum 10% Fresenius 100 mg/ml",
+    "Glucosum 5% Fresenius 50 mg/ml",
+    "Glukoza 5 Braun 50 mg/ml",
+    "Glukoza 10 Braun 100 mg/ml",
+    "Glukoza 20 Braun 200 mg/ml",
+    "Glucosum Teva 200 mg/ml",
+    "Injectio Glucosi 10% Baxter 100 mg/ml"
+   ]
+  },
+  {
+   "id": "haloperydol",
+   "typ": "lek",
+   "rpl": 2818,
+   "chplWlasny": null,
+   "nazwa": "Haloperidol WZF",
+   "substancja": "Haloperydol",
+   "aliasy": "",
+   "moc": "5 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "nie-iv",
+   "weryfikacja": null,
+   "uwagaAdmin": "Wg RPL Haloperidol WZF ma tylko drogę domięśniową. Brak zarejestrowanego haloperydolu dożylnego.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2818/characteristic",
+    "pozwolenie": "03029",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "0f3ca6407e5e8310",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "heparyna",
+   "typ": "lek",
+   "rpl": 2861,
+   "chplWlasny": null,
+   "nazwa": "Heparinum WZF",
+   "substancja": "Heparyna niefrakcjonowana",
+   "aliasy": "hnf",
+   "moc": "5000 j.m./ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2861/characteristic",
+    "pozwolenie": "03023",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "42e7f315d1d686c6",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "hydrokortyzon",
+   "typ": "lek",
+   "rpl": 12193,
+   "chplWlasny": null,
+   "nazwa": "Corhydron 100",
+   "substancja": "Hydrokortyzon",
+   "aliasy": "",
+   "moc": "100 mg",
+   "postac": "Proszek i rozpuszczalnik do sporządzania roztworu do wstrzykiwań lub do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/12193/characteristic",
+    "pozwolenie": "10477",
+    "podmiot": "Bausch Health Ireland Ltd.",
+    "hash": "4cb1bb3196877f16",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Hydrocortison VUAB 100 mg",
+    "Corhydron 25 25 mg",
+    "Hydrocortisone Panpharma 100 mg",
+    "Hydrocortisone Pharmis 100 mg",
+    "Hydrocortisone PHARMLINE 100 mg"
+   ]
+  },
+  {
+   "id": "ketamina",
+   "typ": "lek",
+   "rpl": 3323,
+   "chplWlasny": null,
+   "nazwa": "Ketalar 50",
+   "substancja": "Ketamina",
+   "aliasy": "",
+   "moc": "50 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/3323/characteristic",
+    "pozwolenie": "02047",
+    "podmiot": "Pfizer Europe MA EEIG",
+    "hash": "7373df84d637911d",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Ketalar 10 10 mg/ml"
+   ]
+  },
+  {
+   "id": "ketoprofen",
+   "typ": "lek",
+   "rpl": 3328,
+   "chplWlasny": null,
+   "nazwa": "Ketonal",
+   "substancja": "Ketoprofen",
+   "aliasy": "",
+   "moc": "50 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "amp. 2 ml (100 mg)",
+   "plyny": [
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer z mleczanami",
+     "ok": true
+    },
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    }
+   ],
+   "przygotowanie": [
+    "Krótki wlew: 100–200 mg uzupełnić do 100 ml NaCl 0,9%",
+    "Wlew ciągły: 100–200 mg do 500 ml (NaCl 0,9%, Ringer z mleczanami, G5%)"
+   ],
+   "tempo": [
+    "Krótki wlew: 30–60 min · ciągły: 8 h",
+    "Max 200 mg/dobę, powtórka po 8 h"
+   ],
+   "uwagi": [
+    {
+     "tekst": "Nie łączyć z tramadolem w jednej butelce: wytrąca się osad.",
+     "wazne": true
+    },
+    {
+     "tekst": "Można zmieszać z morfiną w 500 ml NaCl 0,9% lub Ringera z mleczanami.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.2",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/3328/characteristic",
+    "pozwolenie": "06595",
+    "podmiot": "Sandoz GmbH",
+    "hash": "67d9d73f6e61723e",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "klemastyna",
+   "typ": "lek",
+   "rpl": 1483,
+   "chplWlasny": null,
+   "nazwa": "Clemastinum WZF",
+   "substancja": "Klemastyna",
+   "aliasy": "",
+   "moc": "1 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1483/characteristic",
+    "pozwolenie": "00918",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "7f9636817ddef0db",
+    "dataChpl": "01.07.2025",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "klonazepam",
+   "typ": "lek",
+   "rpl": 1496,
+   "chplWlasny": null,
+   "nazwa": "Clonazepamum TZF",
+   "substancja": "Klonazepam",
+   "aliasy": "rivotril",
+   "moc": "1 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Rivotril w ampułkach nie figuruje w RPL. Wybrano Clonazepamum TZF 1 mg/ml.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1496/characteristic",
+    "pozwolenie": "01664",
+    "podmiot": "Tarchomińskie Zakłady Farmaceutyczne \"Polfa\" S.A.",
+    "hash": "a9fc2dbb6f21968a",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "traneksamowy",
+   "typ": "lek",
+   "rpl": 2331,
+   "chplWlasny": null,
+   "nazwa": "Exacyl",
+   "substancja": "Kwas traneksamowy",
+   "aliasy": "kwas traneksamowy txa",
+   "moc": "100 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2331/characteristic",
+    "pozwolenie": "03069",
+    "podmiot": "CHEPLAPHARM Arzneimittel GmbH",
+    "hash": "aa46cd9544746351",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Tranexamic acid Accord 100 mg/ml",
+    "Tranexamic acid Sunho 100 mg/ml",
+    "Kwas traneksamowy Tillomed 100 mg/ml",
+    "Tranexamic Acid Eugia 100 mg/ml"
+   ]
+  },
+  {
+   "id": "labetalol",
+   "typ": "lek",
+   "rpl": null,
+   "chplWlasny": null,
+   "nazwa": "Trandate",
+   "substancja": "Labetalol",
+   "aliasy": "",
+   "moc": "",
+   "postac": "",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "brak-chpl",
+   "weryfikacja": null,
+   "uwagaAdmin": "Labetalol (Trandate) nie figuruje w RPL – prawdopodobnie import docelowy. Brak polskiej ChPL.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": null,
+    "pozwolenie": null,
+    "podmiot": null,
+    "hash": null,
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "lidokaina",
+   "typ": "lek",
+   "rpl": 3761,
+   "chplWlasny": null,
+   "nazwa": "Lignocainum hydrochloricum WZF 2%",
+   "substancja": "Lidokaina",
+   "aliasy": "lignokaina xylocaine",
+   "moc": "20 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/3761/characteristic",
+    "pozwolenie": "00384",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "bfade49da728a0a7",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Lignocainum hydrochloricum WZF 1% 10 mg/ml",
+    "Lignocainum hydrochloricum 1% 10 mg/ml",
+    "Lignocainum hydrochloricum WZF 2% 20 mg/ml"
+   ]
+  },
+  {
+   "id": "mannitol-20",
+   "typ": "plyn",
+   "rpl": 17588,
+   "chplWlasny": null,
+   "nazwa": "Mannitol 20% Fresenius",
+   "substancja": "Mannitol 20%",
+   "aliasy": "",
+   "moc": "200 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/17588/characteristic",
+    "pozwolenie": "02128",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "b7c45e94867f4b52",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Mannitol 15% Baxter 150 mg/ml"
+   ]
+  },
+  {
+   "id": "mannitol-15",
+   "typ": "plyn",
+   "rpl": 22779,
+   "chplWlasny": null,
+   "nazwa": "Mannitol 15% Baxter",
+   "substancja": "Mannitol 15%",
+   "aliasy": "",
+   "moc": "150 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/22779/characteristic",
+    "pozwolenie": "16868",
+    "podmiot": "Baxter Polska Sp. z o.o.",
+    "hash": "32ab0bcd5f815276",
+    "dataChpl": "05.12.2019",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Mannitol 20% Fresenius 200 mg/ml"
+   ]
+  },
+  {
+   "id": "metamizol",
+   "typ": "lek",
+   "rpl": 5693,
+   "chplWlasny": null,
+   "nazwa": "Pyralgin",
+   "substancja": "Metamizol",
+   "aliasy": "pyralgina",
+   "moc": "500 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "amp. 2 ml (1 g) i 5 ml (2,5 g)",
+   "plyny": [
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer",
+     "ok": true
+    }
+   ],
+   "przygotowanie": [
+    "Rozcieńczenie 1:10 (opcjonalne przed podaniem iv)",
+    "2 ml w 20 ml · 5 ml w 50 ml"
+   ],
+   "tempo": [
+    "Wstrzykiwać bardzo powoli: max 500 mg/min (1 ml/min)"
+   ],
+   "uwagi": [
+    {
+     "tekst": "Przed podaniem ogrzać do temperatury ciała. Pacjent leżący, kontrola RR, tętna i oddechu (ryzyko spadku ciśnienia i anafilaksji).",
+     "wazne": true
+    },
+    {
+     "tekst": "Podać od razu po rozcieńczeniu. Zażółcenie roztworu nie zmienia jego właściwości.",
+     "wazne": false
+    },
+    {
+     "tekst": "Wg ChPL można zmieszać z tramadolem 50 mg/ml w podanych płynach.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.3, 6.6",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/5693/characteristic",
+    "pozwolenie": "02056",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "126446426c9972a2",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Metamizole Kalceks 500 mg/ml",
+    "Metamizole Kabi 500 mg/ml",
+    "Metamizol Krka 500 mg/ml",
+    "Metamizol-SF 500 mg",
+    "Pixalzina 500 mg/ml"
+   ]
+  },
+  {
+   "id": "metoklopramid",
+   "typ": "lek",
+   "rpl": 4343,
+   "chplWlasny": null,
+   "nazwa": "Metoclopramidum 0,5% Polpharma",
+   "substancja": "Metoklopramid",
+   "aliasy": "metoclopramid",
+   "moc": "5 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/4343/characteristic",
+    "pozwolenie": "00400",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "ca95f531369090cd",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "metoprolol",
+   "typ": "lek",
+   "rpl": 991,
+   "chplWlasny": null,
+   "nazwa": "Betaloc",
+   "substancja": "Metoprolol",
+   "aliasy": "",
+   "moc": "1 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/991/characteristic",
+    "pozwolenie": "02335",
+    "podmiot": "Recordati Industria Chimica e Farmaceutica S.p.A",
+    "hash": "94556234df3ab440",
+    "dataChpl": "07/2026",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Metocard 1 mg/ml"
+   ]
+  },
+  {
+   "id": "metronidazol",
+   "typ": "lek",
+   "rpl": 4355,
+   "chplWlasny": null,
+   "nazwa": "Metronidazol 0,5% Polpharma",
+   "substancja": "Metronidazol",
+   "aliasy": "",
+   "moc": "5 mg/ml",
+   "postac": "Roztwór do wstrzykiwań i infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/4355/characteristic",
+    "pozwolenie": "01604",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "fa00a0303451c6df",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Metronidazol 0,5% Fresenius 5 mg/ml",
+    "Metronidazole B. Braun 5 mg/ml"
+   ]
+  },
+  {
+   "id": "metyloprednizolon",
+   "typ": "lek",
+   "rpl": 6183,
+   "chplWlasny": null,
+   "nazwa": "Solu-Medrol",
+   "substancja": "Metyloprednizolon",
+   "aliasy": "solumedrol",
+   "moc": "125 mg",
+   "postac": "Proszek i rozpuszczalnik do sporządzania roztworu do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/6183/characteristic",
+    "pozwolenie": "02366",
+    "podmiot": "Pfizer Europe MA EEIG",
+    "hash": "5fd057c63ddfaf20",
+    "dataChpl": "10.12.2025",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Solu-Medrol 40 mg",
+    "Solu-Medrol 500 mg",
+    "Solu-Medrol 1000 mg",
+    "Meprelon 250 mg",
+    "Meprelon 1000 mg",
+    "Methylprednisolone Sopharma 40 mg",
+    "Methylprednisolone Sopharma 250 mg",
+    "Meprelon 16 mg",
+    "Meprelon 32 mg"
+   ]
+  },
+  {
+   "id": "midazolam",
+   "typ": "lek",
+   "rpl": 9380,
+   "chplWlasny": null,
+   "nazwa": "Midanium",
+   "substancja": "Midazolam",
+   "aliasy": "",
+   "moc": "5 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/9380/characteristic",
+    "pozwolenie": "04248",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "8452b97889a6ce1b",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Midanium 1 mg/ml",
+    "Midazolam Accord 1 mg/ml",
+    "Midazolam Accord 5 mg/ml",
+    "Midazolam Sandoz 1 mg/ml",
+    "Midazolam Sandoz 5 mg/ml",
+    "Midazolam Kalceks 5 mg/ml",
+    "Midazolam SUN 1 mg/ml",
+    "Midazolam SUN 2mg/ml",
+    "Midazolam Kalceks 1 mg/ml",
+    "Midazolam B. Braun 1 mg/ml",
+    "Midazolam B. Braun 5 mg/ml",
+    "Midazolam hameln 1 mg/ml",
+    "Midazolam hameln 2 mg/ml",
+    "Midazolam hameln 5 mg/ml",
+    "Midazolamum Aguettant 1 mg/ml"
+   ]
+  },
+  {
+   "id": "morfina",
+   "typ": "lek",
+   "rpl": 8478,
+   "chplWlasny": null,
+   "nazwa": "Morphini sulfas",
+   "substancja": "Morfina",
+   "aliasy": "",
+   "moc": "10 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/8478/characteristic",
+    "pozwolenie": "04049",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "3aec25f014a95410",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Morphini sulfas WZF 20 mg/ml"
+   ]
+  },
+  {
+   "id": "nalokson",
+   "typ": "lek",
+   "rpl": 4550,
+   "chplWlasny": null,
+   "nazwa": "Naloxonum hydrochloricum WZF",
+   "substancja": "Nalokson",
+   "aliasy": "",
+   "moc": "400 mcg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/4550/characteristic",
+    "pozwolenie": "01042",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "780b6dbce353e6fa",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "nitrogliceryna",
+   "typ": "lek",
+   "rpl": 5252,
+   "chplWlasny": null,
+   "nazwa": "Perlinganit",
+   "substancja": "Nitrogliceryna",
+   "aliasy": "ntg",
+   "moc": "1 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/5252/characteristic",
+    "pozwolenie": "02649",
+    "podmiot": "Merus Labs Luxco II S.a R.L.",
+    "hash": "3a426cea489395b6",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "noradrenalina",
+   "typ": "lek",
+   "rpl": 3745,
+   "chplWlasny": null,
+   "nazwa": "Levonor",
+   "substancja": "Noradrenalina",
+   "aliasy": "norepinefryna",
+   "moc": "1 mg/ml",
+   "postac": "Koncentrat do sporządzania roztworu do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/3745/characteristic",
+    "pozwolenie": "03394",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "ba07dfe41027d596",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Sinora 1 mg/ml",
+    "Sinora 0,1 mg/ml",
+    "Sinora 0,2 mg/ml",
+    "Norepinephrine Sopharma 1 mg/ml",
+    "Noradrenalin Kalceks 1mg/ml",
+    "Noradrenaline hameln 0,2 mg/ml",
+    "Noradrenaline SUN 0,5 mg/ml",
+    "Noradrenaline Kabi 1 mg/ml",
+    "Noradrenaline Zentiva 1 mg/ml"
+   ]
+  },
+  {
+   "id": "oksykodon",
+   "typ": "lek",
+   "rpl": 20684,
+   "chplWlasny": null,
+   "nazwa": "OxyNorm",
+   "substancja": "Oksykodon",
+   "aliasy": "",
+   "moc": "10 mg/ml",
+   "postac": "Roztwór do wstrzykiwań / koncentrat do sporządzania roztworu do wstrzykiwań/infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/20684/characteristic",
+    "pozwolenie": "15220",
+    "podmiot": "Mundipharma A/S",
+    "hash": "6b246fab01f3574c",
+    "dataChpl": "25 lipiec 2023",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Oxycodone Molteni 10 mg/ml",
+    "Oxycodone Molteni 50 mg/ml",
+    "Oxycodone Hydrochloride Hameln 10 mg/ml",
+    "Oxycodone Kalceks 10 mg/ml",
+    "Oxycodone Kalceks 50 mg/ml"
+   ]
+  },
+  {
+   "id": "ondansetron",
+   "typ": "lek",
+   "rpl": 17749,
+   "chplWlasny": null,
+   "nazwa": "Ondansetron Kabi 2 mg/ml roztwór do wstrzykiwań",
+   "substancja": "Ondansetron",
+   "aliasy": "zofran",
+   "moc": "2 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "amp. 2 ml (4 mg) · 4 ml (8 mg)",
+   "plyny": [
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    },
+    {
+     "nazwa": "Ringer z mleczanami",
+     "ok": true
+    },
+    {
+     "nazwa": "Mannitol 10%",
+     "ok": true
+    }
+   ],
+   "przygotowanie": [
+    "Do 8 mg: wstrzyknięcie iv bez rozcieńczania",
+    "Powyżej 8 mg (max 16 mg): w 50–100 ml płynu"
+   ],
+   "tempo": [
+    "Wstrzyknięcie: min. 30 s",
+    "Wlew (dawki > 8 mg): min. 15 min"
+   ],
+   "uwagi": [
+    {
+     "tekst": "Nie podawać w jednej strzykawce ani wlewie z innymi lekami.",
+     "wazne": true
+    },
+    {
+     "tekst": "Pojedyncza dawka max 16 mg (ryzyko wydłużenia QT).",
+     "wazne": false
+    },
+    {
+     "tekst": "Rozcieńczony roztwór chronić przed światłem.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.2, 6.3, 6.6",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Zofran w ampułkach nie figuruje w RPL. Wybrano Ondansetron Kabi 2 mg/ml.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/17749/characteristic",
+    "pozwolenie": "12985",
+    "podmiot": "Fresenius Kabi Deutschland GmbH",
+    "hash": "5e9426ac8c066c97",
+    "dataChpl": "21.02.2022",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Ondansetron B. Braun 2 mg/ml roztwór do wstrzykiwań 2 mg/ml",
+    "Ondansetron Baxter 2 mg/ml",
+    "Ondansetron Accord 2 mg/ml 2 mg/ml",
+    "Ondansetron B. Braun 0,08 mg/ml",
+    "Ondansetron B. Braun 0,16 mg/ml",
+    "Ondansetron Accord 4 mg",
+    "Ondansetron Accord 8 mg",
+    "Ondansetron Kalceks 2 mg/ml",
+    "Ondansetron Kabi 0,08 mg/ml",
+    "Ondansetron Kabi 0,16 mg/ml"
+   ]
+  },
+  {
+   "id": "pantoprazol",
+   "typ": "lek",
+   "rpl": 9745,
+   "chplWlasny": null,
+   "nazwa": "Controloc",
+   "substancja": "Pantoprazol",
+   "aliasy": "",
+   "moc": "40 mg",
+   "postac": "Proszek do sporządzania roztworu do wstrzykiwań",
+   "opakowanie": "fiolka 40 mg (proszek)",
+   "plyny": [
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    }
+   ],
+   "przygotowanie": [
+    "Rozpuścić proszek w 10 ml NaCl 0,9%",
+    "Podać bezpośrednio albo w 100 ml NaCl 0,9% lub G5%"
+   ],
+   "tempo": [
+    "Podawać przez 2–15 min"
+   ],
+   "uwagi": [
+    {
+     "tekst": "Zużyć w ciągu 12 h od przygotowania, najlepiej od razu.",
+     "wazne": false
+    },
+    {
+     "tekst": "Dożylnie tylko, gdy nie można podać doustnie.",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.3",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/9745/characteristic",
+    "pozwolenie": "08330",
+    "podmiot": "Takeda Pharma Sp. z o.o.",
+    "hash": "32ae2d926a53c8b4",
+    "dataChpl": "05 marca 2026",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "IPP 40 mg",
+    "Nolpaza 40 mg",
+    "Pantoprazole Reig Jofre 40 mg",
+    "Pantoprazol Accord 40 mg",
+    "Pantoprazol SUN 40 mg",
+    "Pantoprazole Eugia 40 mg",
+    "Pantoprazole Genoptim 40 mg",
+    "Pantoprazol Zentiva 40 mg",
+    "Pantoprazole Kalceks 40 mg",
+    "Polpanto 40 mg",
+    "Pantoprazole AptaPharma 40 mg",
+    "Pantoprazol PHARMLINE 40 mg",
+    "Pantoprazol Noridem 40 mg",
+    "Pantoprazol SaneXcel 40 mg"
+   ]
+  },
+  {
+   "id": "papaweryna",
+   "typ": "lek",
+   "rpl": 5120,
+   "chplWlasny": null,
+   "nazwa": "Papaverinum hydrochloricum WZF",
+   "substancja": "Papaweryna",
+   "aliasy": "",
+   "moc": "20 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "nie-iv",
+   "weryfikacja": null,
+   "uwagaAdmin": "Wg RPL Papaverinum hydrochloricum WZF ma drogi: domięśniowa, podskórna. Brak drogi dożylnej.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/5120/characteristic",
+    "pozwolenie": "02438",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "7b292b51cf34b0de",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "paracetamol",
+   "typ": "lek",
+   "rpl": 24612,
+   "chplWlasny": null,
+   "nazwa": "Paracetamol Kabi",
+   "substancja": "Paracetamol",
+   "aliasy": "perfalgan",
+   "moc": "10 mg/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "fiolka/worek 100 ml (1 g) · 50 ml (500 mg)",
+   "plyny": [
+    {
+     "nazwa": "NaCl 0,9%",
+     "ok": true
+    },
+    {
+     "nazwa": "Glukoza 5%",
+     "ok": true
+    }
+   ],
+   "przygotowanie": [
+    "Gotowy do podania (10 mg/ml)",
+    "Można rozcieńczyć 1:10 (1 część leku + 9 części płynu)"
+   ],
+   "tempo": [
+    "Wlew 15 min",
+    "Odstęp między dawkami min. 4 h (6 h przy ciężkiej niewydolności nerek)"
+   ],
+   "uwagi": [
+    {
+     "tekst": "Nie mieszać z innymi lekami.",
+     "wazne": true
+    },
+    {
+     "tekst": "Po rozcieńczeniu zużyć od razu, max 6 h łącznie z czasem wlewu.",
+     "wazne": false
+    },
+    {
+     "tekst": "Pilnować końca wlewu, szczególnie przez wkłucie centralne (zator powietrzny).",
+     "wazne": false
+    }
+   ],
+   "punkty": "4.2, 6.2, 6.3, 6.6",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Perfalgan nie figuruje w RPL. Wybrano Paracetamol Kabi 10 mg/ml.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/24612/characteristic",
+    "pozwolenie": "18152",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "0c6153f175a63a68",
+    "dataChpl": "20.01.2025",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Paracetamol B. Braun 10 mg/ml",
+    "Paracetamol Accord 10 mg/ml",
+    "Paracetamol Baxter 10 mg/ml",
+    "Paracetamol Fresenius 10 mg/ml"
+   ]
+  },
+  {
+   "id": "petydyna",
+   "typ": "lek",
+   "rpl": null,
+   "chplWlasny": null,
+   "nazwa": "Dolcontral",
+   "substancja": "Petydyna",
+   "aliasy": "dolargan",
+   "moc": "",
+   "postac": "",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "brak-chpl",
+   "weryfikacja": null,
+   "uwagaAdmin": "Petydyna (Dolcontral) nie figuruje w RPL – prawdopodobnie import docelowy. Brak polskiej ChPL.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": null,
+    "pozwolenie": null,
+    "podmiot": null,
+    "hash": null,
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "ringer",
+   "typ": "plyn",
+   "rpl": 32355,
+   "chplWlasny": null,
+   "nazwa": "Płyn Ringera Fresenius",
+   "substancja": "Płyn Ringera",
+   "aliasy": "",
+   "moc": "(8,6 mg + 0,3 mg + 0,33 mg)/ml",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/32355/characteristic",
+    "pozwolenie": "21992",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "ea0b9dbf1d36884e",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Ringer (8,6 mg + 0,3 mg + 0,33 mg)/ml"
+   ]
+  },
+  {
+   "id": "ringer-mleczany",
+   "typ": "plyn",
+   "rpl": 32354,
+   "chplWlasny": null,
+   "nazwa": "Płyn Ringera z mleczanami Fresenius",
+   "substancja": "Płyn Ringera z mleczanami",
+   "aliasy": "hartmann ringer lactate",
+   "moc": "-",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/32354/characteristic",
+    "pozwolenie": "21991",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "9fb4aabe0319bb27",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Aminomel 10 E -",
+    "Aminomel 12,5 E -",
+    "Aminoplasmal Hepa 10% None",
+    "Primene 10% -",
+    "Tracutil -",
+    "Nephrotect None",
+    "Aminoven Infant 10% -",
+    "Omegaven -",
+    "Volulyte 6% -",
+    "Aminomix 1 Novum -",
+    "Nutriflex Special None",
+    "Aminoplasmal 15% None",
+    "Phoxilium 1,2 mmol/l",
+    "Hemosol BO -",
+    "Aminoplasmal B. Braun 10% -"
+   ]
+  },
+  {
+   "id": "pwe",
+   "typ": "plyn",
+   "rpl": 32254,
+   "chplWlasny": null,
+   "nazwa": "Optilyte",
+   "substancja": "Płyn wieloelektrolitowy (PWE)",
+   "aliasy": "pwe optilyte",
+   "moc": "-",
+   "postac": "Roztwór do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Jako PWE wybrano Optilyte (Fresenius). Na oddziale może być inny preparat (np. Sterofundin ISO, Plasmalyte).",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/32254/characteristic",
+    "pozwolenie": "21958",
+    "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
+    "hash": "3ddcb181e7280141",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Aminomel 10 E -",
+    "Aminomel 12,5 E -",
+    "Aminoplasmal Hepa 10% None",
+    "Primene 10% -",
+    "Tracutil -",
+    "Nephrotect None",
+    "Aminoven Infant 10% -",
+    "Omegaven -",
+    "Volulyte 6% -",
+    "Aminomix 1 Novum -",
+    "Nutriflex Special None",
+    "Aminoplasmal 15% None",
+    "Phoxilium 1,2 mmol/l",
+    "Hemosol BO -",
+    "Aminoplasmal B. Braun 10% -"
+   ]
+  },
+  {
+   "id": "propofol",
+   "typ": "lek",
+   "rpl": 14789,
+   "chplWlasny": null,
+   "nazwa": "Propofol 1% MCT/LCT Fresenius",
+   "substancja": "Propofol",
+   "aliasy": "",
+   "moc": "10 mg/ml",
+   "postac": "Emulsja do wstrzykiwań / do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/14789/characteristic",
+    "pozwolenie": "11898",
+    "podmiot": "Fresenius Kabi Deutschland GmbH",
+    "hash": "b0a3505d343e9660",
+    "dataChpl": "08.08.2024",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Diprivan 10 mg/ml",
+    "Propofol 1% Fresenius 10 mg/ml ",
+    "Plofed 1% 10 mg/ml",
+    "Propofol 2% MCT/LCT Fresenius 20 mg/ml",
+    "Propofol-Lipuro 2% (20 mg/ml) emulsja do wstrzykiwań lub infuzji 20 mg/ml",
+    "Propofol-Lipuro 10 mg/ml",
+    "Provive 10 mg/ml",
+    "Provive 20 mg/ml",
+    "Propofol-Lipuro 5 mg/ml",
+    "Propofol Baxter 10 mg/ml",
+    "Propofol Baxter 20 mg/ml",
+    "Propofol 1% MCT/LCT Fresenius 10 mg/ml",
+    "Propofol Troikaa 10 mg/ml",
+    "Propofol Farmak 10 mg/ml",
+    "Propofol Farmak 20 mg/ml"
+   ]
+  },
+  {
+   "id": "protamina",
+   "typ": "lek",
+   "rpl": 45949,
+   "chplWlasny": null,
+   "nazwa": "Protamine sulfate LEO Pharma",
+   "substancja": "Protamina",
+   "aliasy": "",
+   "moc": "14000 IU/ml",
+   "postac": "Roztwór do wstrzykiwań / do infuzji",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Wybrano Protamine sulfate LEO Pharma (jedyny produkt z protaminą w RPL).",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/45949/characteristic",
+    "pozwolenie": "27057",
+    "podmiot": "LEO Pharma A/S",
+    "hash": "f24314c13a06021f",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Siarczan protaminy 1% 10 mg/ml"
+   ]
+  },
+  {
+   "id": "rokuronium",
+   "typ": "lek",
+   "rpl": 8381,
+   "chplWlasny": null,
+   "nazwa": "Esmeron",
+   "substancja": "Rokuronium",
+   "aliasy": "",
+   "moc": "50 mg/5 ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/8381/characteristic",
+    "pozwolenie": "07844",
+    "podmiot": "MSD Polska Sp. z o.o.",
+    "hash": "73c4b40a3431208a",
+    "dataChpl": "19/12/2022",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Esmeron 100 mg/10 ml",
+    "Rocuronium Kabi 10 mg/ml",
+    "Rocuronium B. Braun 10 mg/ml",
+    "Roqurum 10 mg/ml",
+    "Rocuronium bromide hameln 10 mg/ml",
+    "Rocuronium Kalceks 10 mg/ml",
+    "Rocuronium Aguettant 10 mg/ml",
+    "Rocuronium bromide Noridem 10 mg/ml"
+   ]
+  },
+  {
+   "id": "mgso4",
+   "typ": "lek",
+   "rpl": 3078,
+   "chplWlasny": null,
+   "nazwa": "Inj. Magnesii Sulfurici 20% Polpharma",
+   "substancja": "Siarczan magnezu 20%",
+   "aliasy": "magnez mgso4",
+   "moc": "200 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/3078/characteristic",
+    "pozwolenie": "00445",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "93bbf8b502bbefec",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "suksametonium",
+   "typ": "lek",
+   "rpl": 1404,
+   "chplWlasny": null,
+   "nazwa": "Chlorsuccillin",
+   "substancja": "Suksametonium",
+   "aliasy": "sukcynylocholina",
+   "moc": "200 mg",
+   "postac": "Proszek do sporządzania roztworu do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/1404/characteristic",
+    "pozwolenie": "01076",
+    "podmiot": "Bausch Health Ireland Ltd.",
+    "hash": "95c52964b7b6cd11",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "tenekteplaza",
+   "typ": "lek",
+   "rpl": null,
+   "chplWlasny": "https://www.ema.europa.eu/pl/documents/product-information/metalyse-epar-product-information_pl.pdf",
+   "nazwa": "Metalyse",
+   "substancja": "Tenekteplaza",
+   "aliasy": "tnk tromboliza",
+   "moc": "",
+   "postac": "",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "Lek zarejestrowany centralnie (EMA). ChPL po polsku pobrana ze strony EMA.",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://www.ema.europa.eu/pl/documents/product-information/metalyse-epar-product-information_pl.pdf",
+    "pozwolenie": null,
+    "podmiot": null,
+    "hash": "1987fb5e069e6b14",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  },
+  {
+   "id": "tiopental",
+   "typ": "lek",
+   "rpl": 37577,
+   "chplWlasny": null,
+   "nazwa": "Thiopental VUAB",
+   "substancja": "Tiopental",
+   "aliasy": "",
+   "moc": "500 mg",
+   "postac": "Proszek do sporządzania roztworu do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/37577/characteristic",
+    "pozwolenie": "26945",
+    "podmiot": "VUAB Pharma a.s.",
+    "hash": "eeca1bccef2226cd",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Thiopental VUAB 1000 mg"
+   ]
+  },
+  {
+   "id": "torasemid",
+   "typ": "lek",
+   "rpl": 9248,
+   "chplWlasny": null,
+   "nazwa": "Trifas 20",
+   "substancja": "Torasemid",
+   "aliasy": "",
+   "moc": "5 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/9248/characteristic",
+    "pozwolenie": "04716",
+    "podmiot": "Menarini International Operations Luxembourg S.A.",
+    "hash": "3ad2a3024b26d440",
+    "dataChpl": "05/2023",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Trifas 10 5 mg/ml",
+    "Trifas 200 10 mg/ml"
+   ]
+  },
+  {
+   "id": "tramadol",
+   "typ": "lek",
+   "rpl": 6741,
+   "chplWlasny": null,
+   "nazwa": "Tramal",
+   "substancja": "Tramadol",
+   "aliasy": "",
+   "moc": "50 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/6741/characteristic",
+    "pozwolenie": "02538",
+    "podmiot": "STADA Arzneimittel AG",
+    "hash": "dd2eb21ae3676853",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Poltram 100 50 mg/ml",
+    "Poltram 50 50 mg/ml",
+    "Tramadol Krka 50 mg/ml",
+    "Tramadol Krka 100 mg/ 2 ml",
+    "Tramadol Kalceks 50 mg/ml"
+   ]
+  },
+  {
+   "id": "urapidyl",
+   "typ": "lek",
+   "rpl": 2101,
+   "chplWlasny": null,
+   "nazwa": "Ebrantil 25",
+   "substancja": "Urapidyl",
+   "aliasy": "",
+   "moc": "5 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/2101/characteristic",
+    "pozwolenie": "01798",
+    "podmiot": "CHEPLAPHARM Arzneimittel GmbH",
+    "hash": "e85ccaddd7891a24",
+    "dataChpl": "23 czerwca 2021",
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": [
+    "Tachyben 25 mg",
+    "Tachyben 50 mg",
+    "Tachyben 100 mg",
+    "Urapidil Kalceks 25 mg",
+    "Urapidil Kalceks 50 mg"
+   ]
+  },
+  {
+   "id": "nahco3",
+   "typ": "lek",
+   "rpl": 4630,
+   "chplWlasny": null,
+   "nazwa": "Natrium bicarbonicum 8,4% Polpharma",
+   "substancja": "Wodorowęglan sodu 8,4%",
+   "aliasy": "bikarbonat dwuwęglan nahco3",
+   "moc": "84 mg/ml",
+   "postac": "Roztwór do wstrzykiwań",
+   "opakowanie": "",
+   "plyny": [],
+   "przygotowanie": [],
+   "tempo": [],
+   "uwagi": [],
+   "punkty": "",
+   "status": "szkic",
+   "weryfikacja": null,
+   "uwagaAdmin": "",
+   "ukryty": false,
+   "zrodlo": {
+    "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/4630/characteristic",
+    "pozwolenie": "02485",
+    "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
+    "hash": "61b62a793abebfc4",
+    "dataChpl": null,
+    "pobrano": "2026-11-12"
+   },
+   "zamienniki": []
+  }
+ ]
+}
