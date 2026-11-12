@@ -20,7 +20,7 @@
    "punkty": "",
    "status": "szkic",
    "weryfikacja": null,
-   "uwagaAdmin": "",
+   "uwagaAdmin": "test publikacji",
    "ukryty": false,
    "zrodlo": {
     "url": "https://rejestry.ezdrowie.gov.pl/api/rpl/medicinal-products/298/characteristic",
