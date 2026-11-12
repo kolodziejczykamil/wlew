@@ -1,0 +1,13 @@
+// Konfiguracja Cloudflare Workers: pliki aplikacji z app/ + backend panelu (worker.js → functions/api).
+// Zmienne GITHUB_TOKEN, SESSION_SECRET i USERS ustawia się w panelu Cloudflare jako Secrets.
+{
+  "name": "wlew",
+  "main": "worker.js",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./app",
+    "binding": "ASSETS"
+  },
+  // nie kasuj zmiennych ustawionych w panelu Cloudflare przy kolejnych wdrożeniach
+  "keep_vars": true
+}

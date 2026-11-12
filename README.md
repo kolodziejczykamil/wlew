@@ -15,7 +15,8 @@ app/                  ← to wrzucamy na hosting (GitHub Pages / Cloudflare Page
   data/leki.json      ← karty leków – źródło listy i treści (edytowane w panelu)
   data/zrodla.json    ← wycięte punkty ChPL dla panelu
   data/rejestr-iv.json← indeks produktów dożylnych z rejestru (wyszukiwarka „Dodaj lek”)
-functions/api/       ← backend panelu (Cloudflare Pages Functions): login, logout, me, leki
+worker.js, wrangler.jsonc ← Cloudflare Worker: pliki z app/ + backend /api/*
+functions/api/       ← handlery backendu: login, logout, me, leki
 lib/                 ← sesje/hasła i zapis do repo dla funkcji
 tools/
   konta.py            ← konta do panelu (hasła PBKDF2 → zmienna USERS w Cloudflare)
@@ -47,10 +48,10 @@ Zmiany zapisują się w przeglądarce jako kopia robocza, dopóki nie klikniesz 
 ## Jak działa publikacja (bez własnego serwera)
 
 ```
-Panel (login + hasło) → „Opublikuj” → /api/leki (Cloudflare Pages Functions, katalog functions/)
+Panel (login + hasło) → „Opublikuj” → /api/leki (Cloudflare Worker, worker.js)
       → serwer zapisuje app/data/leki.json w repo przez GitHub API (commit z imieniem osoby)
       → GitHub Actions (.github/workflows/dane.yml) dociąga ChPL dla nowych leków i odświeża metadane
-      → Cloudflare Pages publikuje nową wersję → aplikacja pobiera ją przy następnym otwarciu
+      → Cloudflare wdraża nową wersję → aplikacja pobiera ją przy następnym otwarciu
 ```
 
 - Osoby z panelu (np. Marcin) nie potrzebują konta na GitHubie. Klucz do GitHuba zna tylko serwer.
@@ -58,16 +59,17 @@ Panel (login + hasło) → „Opublikuj” → /api/leki (Cloudflare Pages Funct
 - Co poniedziałek Actions pobiera rejestr i wszystkie ChPL od nowa. Karty, których ChPL się zmieniła, dostają status „Zmiana ChPL”.
 - Historia zmian: zakładka Commits w repozytorium (każda publikacja ma opis i imię osoby).
 
-### Konfiguracja Cloudflare Pages (jednorazowo)
+### Konfiguracja Cloudflare Workers (jednorazowo)
 
-1. dash.cloudflare.com → Workers & Pages → Create → Pages → **Connect to Git** → `kolodziejczykamil/wlew`.
-2. Production branch: `main` · Framework preset: *None* · Build command: puste · **Build output directory: `app`** · Root directory: puste.
-   Katalog `functions/` w repo Cloudflare wykrywa sam – to jest backend panelu.
-3. Settings → Variables and Secrets (Production) – dodaj jako **Secret**:
+Projekt ma `wrangler.jsonc`: pliki z `app/` serwuje Cloudflare, a `/api/*` obsługuje `worker.js` (handlery w `functions/api/`).
+
+1. dash.cloudflare.com → Workers & Pages → Create → Import a repository → `kolodziejczykamil/wlew`.
+2. Project name `wlew`, Build command puste, Deploy command `npx wrangler deploy` (domyślne) → Deploy.
+3. Projekt → Settings → Variables and Secrets → dodaj jako **Secret**:
    - `GITHUB_TOKEN` – klucz z github.com/settings/personal-access-tokens/new: Repository access *Only select* → `wlew`, Permissions → *Contents: Read and write*. Ustaw długą ważność i wpisz w kalendarz datę odnowienia.
    - `SESSION_SECRET` – wynik `python3 tools/konta.py sekret`
    - `USERS` – wynik `python3 tools/konta.py dodaj …` (niżej)
-4. Deployments → ostatnie wdrożenie → **Retry deployment** (zmienne działają od następnego wdrożenia).
+4. Sekrety działają od razu. Każdy push na `main` wdraża nową wersję automatycznie.
 
 ### Konta do panelu
 
@@ -77,7 +79,7 @@ python3 tools/konta.py dodaj kamil "Kamil Kołodziejczyk"
 python3 tools/konta.py usun marcin                    # odebranie dostępu
 ```
 
-Skrypt wypisuje nową wartość `USERS` – wklej ją w Cloudflare (punkt 3) i zrób Retry deployment. Lista kont leży lokalnie w `tools/.konta.json` (nie trafia do repo). Hasło przekaż osobiście albo SMS-em, nie w tym samym kanale co login.
+Skrypt wypisuje nową wartość `USERS` – wklej ją w Cloudflare (punkt 3, edytuj istniejący sekret USERS). Lista kont leży lokalnie w `tools/.konta.json` (nie trafia do repo). Hasło przekaż osobiście albo SMS-em, nie w tym samym kanale co login.
 
 ### Test lokalny (panel + backend + udawany GitHub)
 
