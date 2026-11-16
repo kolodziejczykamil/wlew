@@ -1,6 +1,6 @@
 {
- "stanBazy": "2026-11-12",
- "wygenerowano": "2026-11-12",
+ "stanBazy": "2026-11-16",
+ "wygenerowano": "2026-11-16",
  "leki": [
   {
    "id": "adenozyna",
@@ -28,7 +28,7 @@
     "podmiot": "Sanofi Winthrop Industrie",
     "hash": "7d945c9af5666e36",
     "dataChpl": "07/2023",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Adenosine Kabi 3 mg/ml"
@@ -60,7 +60,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "c626b38e4e697b64",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Adrenalina Aguettant 1 mg/10 ml",
@@ -93,7 +93,7 @@
     "podmiot": "Boehringer Ingelheim International GmbH",
     "hash": "8efd6e812c399b90",
     "dataChpl": "1 września 2024",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Actilyse 10 10 mg",
@@ -155,7 +155,7 @@
     "podmiot": "Sanofi Winthrop Industrie",
     "hash": "3e4cd12b537d237d",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Amiokordin 50 mg/ml",
@@ -189,7 +189,7 @@
     "podmiot": "Sandoz GmbH",
     "hash": "e642fc8d1c653f70",
     "dataChpl": "20.02.2026",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Taromentin 500 mg + 100 mg",
@@ -227,7 +227,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "8d22d96d981e3304",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -257,7 +257,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "43957efd0c8cdf2d",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Atropinum sulfuricum WZF 0,5 mg/ml"
@@ -289,7 +289,7 @@
     "podmiot": "Sopharma Warszawa Sp. z o.o.",
     "hash": "fbbeeb52ffe185ea",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Scopolamine butylbromide Kalceks 20 mg/ml"
@@ -321,7 +321,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "01e225206dbdba39",
     "dataChpl": "08.05.2024",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Tartriakson 1 g",
@@ -365,7 +365,7 @@
     "podmiot": "Sandoz GmbH",
     "hash": "f4d90982b56fe3ea",
     "dataChpl": "14.06.2024",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Biofuroksym 1,5 g",
@@ -448,7 +448,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "68a8b16c6ea29e2d",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Kalium chloratum 15% Kabi 150 mg/ml"
@@ -480,7 +480,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "167e93c714553a1d",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Inj. Natrii chlorati 10% Polpharma 100 mg/ml",
@@ -517,7 +517,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "0fd1b9d1a98a669f",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Calcium chloride DEMO 1 g/10 ml",
@@ -551,7 +551,7 @@
     "podmiot": "Krka, d.d., Novo mesto",
     "hash": "221bcc7cdc6364df",
     "dataChpl": "17.06.2026",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Proxacin 1% 10 mg/ml",
@@ -587,7 +587,7 @@
     "podmiot": "Bausch Health Ireland Ltd.",
     "hash": "f5c4cf01f69ef80a",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Demezon 4 mg/ml",
@@ -656,7 +656,7 @@
     "podmiot": "Berlin-Chemie AG",
     "hash": "dfc78c3a27fa382b",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Auxilen 50 mg/2 ml",
@@ -691,7 +691,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "d456cdf521d39add",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Neorelium 5 mg/ml",
@@ -724,7 +724,7 @@
     "podmiot": "Sandoz GmbH",
     "hash": "3a6a628569a3ed78",
     "dataChpl": "16.02.2022",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Dobutamin hameln 5 mg/ml",
@@ -757,7 +757,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "44c22de209b5ecfb",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Dopaminum hydrochloricum WZF 1% 10 mg/ml"
@@ -789,7 +789,7 @@
     "podmiot": "Opella Healthcare Commercial Ltd.",
     "hash": "47ef72d7b94ba649",
     "dataChpl": "06/2023",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -819,7 +819,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "2cd4f38b156ca4a0",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Ephedrinum Hydrochloricum Aguettant 3 mg/ml",
@@ -856,7 +856,7 @@
     "podmiot": "Orpha-Devel Handels und Vertriebs GmbH",
     "hash": "85efa14dabbaedb5",
     "dataChpl": "20.08.2020",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -886,7 +886,7 @@
     "podmiot": "B. Braun Melsungen AG",
     "hash": "0382f38bc654fa66",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Hypnomidate 2 mg/ml"
@@ -918,7 +918,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "a668ccc9e64ead0f",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Fentanyl Kalceks 0,05 mg/ml"
@@ -950,7 +950,7 @@
     "podmiot": "Fresenius Kabi Deutschland GmbH",
     "hash": "4e91b5eaa3a6b231",
     "dataChpl": "22.03.2021",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Flumazenil B.Braun 0,1 mg/ml roztwór do wstrzykiwań 0,1 mg/ml",
@@ -1014,7 +1014,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "ea297774d950437a",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Furosemide Kabi 20 mg/2 ml",
@@ -1051,7 +1051,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "e9d9d7cf157793bc",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Glucosum 20% Fresenius 200 mg/ml",
@@ -1091,7 +1091,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "04bf31624e7a06fc",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Glucosum 20% Fresenius 200 mg/ml",
@@ -1131,7 +1131,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "b6aba83ce2bc3f6c",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Glukoza 40 Braun 400 mg/ml",
@@ -1171,7 +1171,7 @@
     "podmiot": "Teva Pharmaceuticals Polska Sp. z o.o.",
     "hash": "4922c7df524855dd",
     "dataChpl": "marzec 2022",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Glucosum 20% Fresenius 200 mg/ml",
@@ -1211,7 +1211,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "0f3ca6407e5e8310",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1241,7 +1241,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "42e7f315d1d686c6",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1271,7 +1271,7 @@
     "podmiot": "Bausch Health Ireland Ltd.",
     "hash": "4cb1bb3196877f16",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Hydrocortison VUAB 100 mg",
@@ -1307,7 +1307,7 @@
     "podmiot": "Pfizer Europe MA EEIG",
     "hash": "7373df84d637911d",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Ketalar 10 10 mg/ml"
@@ -1367,7 +1367,7 @@
     "podmiot": "Sandoz GmbH",
     "hash": "67d9d73f6e61723e",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1397,7 +1397,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "7f9636817ddef0db",
     "dataChpl": "01.07.2025",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1427,7 +1427,7 @@
     "podmiot": "Tarchomińskie Zakłady Farmaceutyczne \"Polfa\" S.A.",
     "hash": "a9fc2dbb6f21968a",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1457,7 +1457,7 @@
     "podmiot": "CHEPLAPHARM Arzneimittel GmbH",
     "hash": "aa46cd9544746351",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Tranexamic acid Accord 100 mg/ml",
@@ -1492,7 +1492,7 @@
     "podmiot": null,
     "hash": null,
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1522,7 +1522,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "bfade49da728a0a7",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Lignocainum hydrochloricum WZF 1% 10 mg/ml",
@@ -1556,7 +1556,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "b7c45e94867f4b52",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Mannitol 15% Baxter 150 mg/ml"
@@ -1588,7 +1588,7 @@
     "podmiot": "Baxter Polska Sp. z o.o.",
     "hash": "32ab0bcd5f815276",
     "dataChpl": "05.12.2019",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Mannitol 20% Fresenius 200 mg/ml"
@@ -1651,7 +1651,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "126446426c9972a2",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Metamizole Kalceks 500 mg/ml",
@@ -1687,7 +1687,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "ca95f531369090cd",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1717,7 +1717,7 @@
     "podmiot": "Recordati Industria Chimica e Farmaceutica S.p.A",
     "hash": "94556234df3ab440",
     "dataChpl": "07/2026",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Metocard 1 mg/ml"
@@ -1749,7 +1749,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "fa00a0303451c6df",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Metronidazol 0,5% Fresenius 5 mg/ml",
@@ -1782,7 +1782,7 @@
     "podmiot": "Pfizer Europe MA EEIG",
     "hash": "5fd057c63ddfaf20",
     "dataChpl": "10.12.2025",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Solu-Medrol 40 mg",
@@ -1822,7 +1822,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "8452b97889a6ce1b",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Midanium 1 mg/ml",
@@ -1868,7 +1868,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "3aec25f014a95410",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Morphini sulfas WZF 20 mg/ml"
@@ -1900,7 +1900,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "780b6dbce353e6fa",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1930,7 +1930,7 @@
     "podmiot": "Merus Labs Luxco II S.a R.L.",
     "hash": "3a426cea489395b6",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -1960,7 +1960,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "ba07dfe41027d596",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Sinora 1 mg/ml",
@@ -2000,7 +2000,7 @@
     "podmiot": "Mundipharma A/S",
     "hash": "6b246fab01f3574c",
     "dataChpl": "25 lipiec 2023",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Oxycodone Molteni 10 mg/ml",
@@ -2072,7 +2072,7 @@
     "podmiot": "Fresenius Kabi Deutschland GmbH",
     "hash": "5e9426ac8c066c97",
     "dataChpl": "21.02.2022",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Ondansetron B. Braun 2 mg/ml roztwór do wstrzykiwań 2 mg/ml",
@@ -2136,7 +2136,7 @@
     "podmiot": "Takeda Pharma Sp. z o.o.",
     "hash": "32ae2d926a53c8b4",
     "dataChpl": "05 marca 2026",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "IPP 40 mg",
@@ -2181,7 +2181,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "7b292b51cf34b0de",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -2239,7 +2239,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "0c6153f175a63a68",
     "dataChpl": "20.01.2025",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Paracetamol B. Braun 10 mg/ml",
@@ -2274,7 +2274,7 @@
     "podmiot": null,
     "hash": null,
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -2304,7 +2304,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "ea0b9dbf1d36884e",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Ringer (8,6 mg + 0,3 mg + 0,33 mg)/ml"
@@ -2336,7 +2336,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "9fb4aabe0319bb27",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Aminomel 10 E -",
@@ -2382,7 +2382,7 @@
     "podmiot": "Fresenius Kabi Polska Sp. z o.o.",
     "hash": "3ddcb181e7280141",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Aminomel 10 E -",
@@ -2428,7 +2428,7 @@
     "podmiot": "Fresenius Kabi Deutschland GmbH",
     "hash": "b0a3505d343e9660",
     "dataChpl": "08.08.2024",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Diprivan 10 mg/ml",
@@ -2474,7 +2474,7 @@
     "podmiot": "LEO Pharma A/S",
     "hash": "f24314c13a06021f",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Siarczan protaminy 1% 10 mg/ml"
@@ -2506,7 +2506,7 @@
     "podmiot": "MSD Polska Sp. z o.o.",
     "hash": "73c4b40a3431208a",
     "dataChpl": "19/12/2022",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Esmeron 100 mg/10 ml",
@@ -2545,7 +2545,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "93bbf8b502bbefec",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -2575,7 +2575,7 @@
     "podmiot": "Bausch Health Ireland Ltd.",
     "hash": "95c52964b7b6cd11",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -2605,7 +2605,7 @@
     "podmiot": null,
     "hash": "1987fb5e069e6b14",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   },
@@ -2635,7 +2635,7 @@
     "podmiot": "VUAB Pharma a.s.",
     "hash": "eeca1bccef2226cd",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Thiopental VUAB 1000 mg"
@@ -2667,7 +2667,7 @@
     "podmiot": "Menarini International Operations Luxembourg S.A.",
     "hash": "3ad2a3024b26d440",
     "dataChpl": "05/2023",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Trifas 10 5 mg/ml",
@@ -2700,7 +2700,7 @@
     "podmiot": "STADA Arzneimittel AG",
     "hash": "dd2eb21ae3676853",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Poltram 100 50 mg/ml",
@@ -2736,7 +2736,7 @@
     "podmiot": "CHEPLAPHARM Arzneimittel GmbH",
     "hash": "e85ccaddd7891a24",
     "dataChpl": "23 czerwca 2021",
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": [
     "Tachyben 25 mg",
@@ -2772,7 +2772,7 @@
     "podmiot": "Zakłady Farmaceutyczne POLPHARMA S.A.",
     "hash": "61b62a793abebfc4",
     "dataChpl": null,
-    "pobrano": "2026-11-12"
+    "pobrano": "2026-11-16"
    },
    "zamienniki": []
   }
