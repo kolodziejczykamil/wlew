@@ -12,6 +12,8 @@ let LEKI = [];
 let stanBazy = "";
 let zakladka = "szukaj";
 const ulubione = new Set(pamiec.get("ulubione", []));
+// Dostęp płatny (Polar.sh przez /api/dostep). Bez serwera (np. lokalny podgląd plików) wszystko jest dostępne.
+let DOSTEP = { platnosci: false, pelny: true, kupUrl: "", cena: "", proba: "14" };
 
 // ---------- ikony w HTML ----------
 document.querySelectorAll("[data-ic]").forEach((el) => (el.outerHTML = ic(el.dataset.ic)));
@@ -28,7 +30,7 @@ $("listaZasad").innerHTML = [
 
 // ---------- dane ----------
 async function wczytaj() {
-  const d = await (await fetch("data/leki.json", { cache: "no-cache" })).json();
+  const d = await (await fetch("data/leki.json", { cache: "no-store", credentials: "same-origin" })).json();
   stanBazy = d.stanBazy;
   LEKI = d.leki.filter((k) => !k.ukryty);
   for (const k of LEKI) {
@@ -107,7 +109,7 @@ function ekranKarty(id) {
   const k = LEKI.find((x) => x.id === id);
   if (!k) return ekranListy(zakladka);
   $("tytulKarty").textContent = k.substancja;
-  $("karta").innerHTML = renderKarta(k) + `
+  $("karta").innerHTML = renderKarta(k, { paywall: htmlPaywall() }) + `
     <section class="group"><h3 class="group-title">Widzisz błąd?</h3>
       <p class="small">Napisz na adres poniżej. Podaj nazwę leku (${esc(k.substancja)}) i co jest nie tak.</p>
       <div class="copy">${esc(CONFIG.emailBledow)}</div></section>`;
@@ -129,7 +131,11 @@ function trasa() {
   if (pamiec.get("zgoda", 0) < CONFIG.wersjaZgody) return pokaz("ekranZgody");
   const h = location.hash.slice(1);
   if (h.startsWith("lek-")) return ekranKarty(h.slice(4));
-  if (h === "info") { zakladka = "info"; return pokaz("ekranInfo"); }
+  if (h === "info" || h === "dostep") {
+    zakladka = "info"; pokaz("ekranInfo");
+    if (h === "dostep") $("dostep").scrollIntoView({ block: "start" });
+    return;
+  }
   ekranListy(["ulubione", "plyny"].includes(h) ? h : "szukaj");
 }
 
@@ -195,6 +201,90 @@ const pasek = $("gornyPasek");
 window.addEventListener("scroll", () => pasek.classList.toggle("scrolled", scrollY > 4), { passive: true });
 window.addEventListener("hashchange", trasa);
 
+// ---------- dostęp ----------
+const zapisanyKod = () => pamiec.get("kod", null); // {kod, aktywacja, sprawdzono}
+async function api(metoda, dane) {
+  const r = await fetch("api/dostep", {
+    method: metoda, credentials: "same-origin", cache: "no-store",
+    headers: dane ? { "Content-Type": "application/json", "X-Wlew": "1" } : {},
+    body: dane ? JSON.stringify(dane) : undefined,
+  });
+  let d = null; try { d = await r.json(); } catch { /* brak serwera */ }
+  return { ok: r.ok, status: r.status, d };
+}
+async function pobierzDostep() {
+  try { const { ok, d } = await api("GET"); if (ok && d) DOSTEP = d; } catch { /* offline albo brak serwera */ }
+}
+function nazwaUrzadzenia() {
+  const ua = navigator.userAgent;
+  const typ = /iPhone/.test(ua) ? "iPhone" : /iPad/.test(ua) ? "iPad" : /Android/.test(ua) ? "Android" : /Mac/.test(ua) ? "Mac" : /Windows/.test(ua) ? "Windows" : "Urządzenie";
+  return `${typ} · ${new Date().toLocaleDateString("pl-PL")}`;
+}
+function htmlPaywall() {
+  return `<section class="paywall">
+    <div class="lock">${ic("klodka")}<div><b>Pełna karta w wersji z dostępem</b><p class="small" style="margin-top:2px">Czym i w ile rozcieńczyć, jak szybko podać, uwagi i praktyka oddziału.</p></div></div>
+    <div class="ghost-lines" aria-hidden="true"><i style="width:70%"></i><i style="width:90%"></i><i style="width:55%"></i></div>
+    ${DOSTEP.kupUrl ? `<a class="btn btn-primary btn-block" href="${esc(DOSTEP.kupUrl)}" target="_blank" rel="noopener">Wypróbuj ${esc(DOSTEP.proba)} dni za darmo</a>
+      <p class="small" style="text-align:center">Potem ${esc(DOSTEP.cena)}. Anulujesz w każdej chwili.</p>` : ""}
+    <a class="btn btn-secondary btn-block" href="#dostep">Mam kod dostępu</a>
+  </section>`;
+}
+function renderDostep(komunikat = "", blad = false) {
+  const sek = $("dostep");
+  sek.hidden = !DOSTEP.platnosci;
+  if (!DOSTEP.platnosci) return;
+  const z = zapisanyKod();
+  const info = komunikat ? `<div class="notice ${blad ? "n-danger" : "n-ok"}">${ic(blad ? "uwaga" : "ok")}<div>${esc(komunikat)}</div></div>` : "";
+  if (DOSTEP.pelny) {
+    const skad = DOSTEP.powod === "panel" ? "Masz pełny dostęp jako osoba z zespołu (zalogowana w panelu)." : "Masz pełny dostęp na tym urządzeniu.";
+    $("dostepTresc").innerHTML = `${info}<p class="access-ok">${ic("ok")} ${skad}</p>
+      ${z ? `<p class="small">Kod: ${esc(z.kod.slice(0, 4))}…${esc(z.kod.slice(-4))}. Możesz go używać na kilku urządzeniach – jeśli zabraknie miejsca, usuń go stąd.</p>
+      <button class="btn btn-ghost btn-block" type="button" id="usunKod">Usuń dostęp z tego urządzenia</button>` : ""}`;
+    $("usunKod")?.addEventListener("click", usunKod);
+    return;
+  }
+  $("dostepTresc").innerHTML = `${info}
+    <p class="small">Bez dostępu widzisz listę leków, ostrzeżenia krytyczne i link do ChPL. Pełne karty odblokowuje kod z zakupu.</p>
+    ${DOSTEP.kupUrl ? `<a class="btn btn-primary btn-block" href="${esc(DOSTEP.kupUrl)}" target="_blank" rel="noopener">Wypróbuj ${esc(DOSTEP.proba)} dni za darmo</a>
+      <p class="small">Potem ${esc(DOSTEP.cena)}. Kod dostępu przyjdzie mailem po zakupie.</p>` : ""}
+    <form id="formKod" class="stack" style="gap:8px" novalidate>
+      <label class="field"><span class="label">Kod dostępu</span>
+        <input class="input" id="poleKod" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="np. 1A2B3C4D-…" value="${esc(z?.kod || "")}"></label>
+      <button class="btn btn-secondary btn-block" type="submit" id="aktywujBtn">Aktywuj na tym urządzeniu</button>
+    </form>`;
+  $("formKod").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const kod = $("poleKod").value.trim();
+    if (!kod) return;
+    $("aktywujBtn").disabled = true; $("aktywujBtn").textContent = "Sprawdzam…";
+    const { ok, d } = await api("POST", { akcja: "aktywuj", kod, urzadzenie: nazwaUrzadzenia() }).catch(() => ({ ok: false, d: { blad: "Brak połączenia z internetem." } }));
+    if (!ok) return renderDostep(d?.blad || "Nie udało się aktywować kodu.", true);
+    pamiec.set("kod", { kod, aktywacja: d.aktywacja, sprawdzono: Date.now() });
+    await pobierzDostep(); await wczytaj();
+    renderDostep("Gotowe – pełne karty są odblokowane na tym urządzeniu.");
+  });
+}
+async function usunKod() {
+  const z = zapisanyKod();
+  if (z) await api("POST", { akcja: "dezaktywuj", kod: z.kod, aktywacja: z.aktywacja }).catch(() => null);
+  pamiec.set("kod", null);
+  await pobierzDostep(); await wczytaj();
+  renderDostep("Usunięto dostęp z tego urządzenia.");
+}
+/** Raz na dobę (gdy jest internet) potwierdza kod i odnawia dostęp. Bez internetu działa ostatnia pobrana wersja kart. */
+async function odswiezKod() {
+  const z = zapisanyKod();
+  if (!DOSTEP.platnosci || !z || !navigator.onLine) return false;
+  if (DOSTEP.pelny && Date.now() - (z.sprawdzono || 0) < 864e5) return false;
+  const { ok, status, d } = await api("POST", { akcja: "odswiez", kod: z.kod, aktywacja: z.aktywacja }).catch(() => ({ ok: false, status: 0 }));
+  if (ok) { pamiec.set("kod", { ...z, sprawdzono: Date.now() }); return true; }
+  if (status === 403 && d?.odebrany) { pamiec.set("kod", { kod: z.kod }); return true; } // zostaw kod w polu, żeby łatwo aktywować ponownie
+  return false;
+}
+
+await pobierzDostep();
+if (await odswiezKod()) await pobierzDostep();
+renderDostep();
 await wczytaj();
 trasa();
 if ("serviceWorker" in navigator && location.protocol !== "file:") navigator.serviceWorker.register("sw.js").catch(() => {});

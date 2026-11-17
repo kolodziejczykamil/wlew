@@ -156,6 +156,14 @@ details.more ul { margin: 8px 0 0; padding-left: 1.1em; font-size: 0.88rem; colo
 .small { font-size: 0.8rem; color: var(--ink-3); margin: 0; }
 .copy { font-family: var(--mono); font-size: 0.88rem; background: var(--surface-2); padding: 8px 10px; border-radius: 8px; user-select: all; overflow-wrap: anywhere; }
 
+/* ---------- dostęp płatny ---------- */
+.paywall { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; display: flex; flex-direction: column; gap: 12px; border: 1.5px solid var(--accent-soft); }
+.paywall .lock { display: flex; gap: 10px; align-items: flex-start; }
+.paywall .lock svg.ic { color: var(--accent); margin-top: 2px; }
+.paywall .ghost-lines { display: flex; flex-direction: column; gap: 8px; }
+.paywall .ghost-lines i { display: block; height: 10px; border-radius: 6px; background: var(--surface-2); }
+.access-ok { color: var(--ok); font-weight: 600; }
+
 /* ---------- przyciski ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 12px; border: 0; font-weight: 600; font-size: 0.95rem; text-decoration: none; }
 .btn-primary { background: var(--accent); color: var(--on-accent); }

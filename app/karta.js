@@ -53,7 +53,7 @@ function komunikat(k) {
 
 const kroki = (arr) => `<ul class="steps">${(arr || []).filter(Boolean).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
 
-export function renderKarta(k, { podglad = false } = {}) {
+export function renderKarta(k, { podglad = false, paywall = "" } = {}) {
   const z = k.zrodlo || {};
   const pokaz = widoczna(k, { podglad }) && maTresc(k);
   const meta = [k.moc, k.postac, k.opakowanie].filter(Boolean).map(esc).join(" · ");
@@ -63,7 +63,10 @@ export function renderKarta(k, { podglad = false } = {}) {
   const nie = (k.plyny || []).filter((p) => p.ok === false);
 
   let tresc = "";
-  if (pokaz) {
+  if (k.zablokowana && !podglad) {
+    // wersja darmowa: ostrzeżenia krytyczne zawsze widoczne, reszta karty po wykupieniu dostępu
+    tresc = krytyczne.map((u) => `<div class="notice n-critical">${ic("uwaga")}<div>${esc(u.tekst)}</div></div>`).join("") + paywall;
+  } else if (pokaz) {
     tresc = `
       ${krytyczne.map((u) => `<div class="notice n-critical">${ic("uwaga")}<div>${esc(u.tekst)}</div></div>`).join("")}
       ${k.plyny?.length || k.przygotowanie?.length ? `<section class="group">

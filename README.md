@@ -89,6 +89,28 @@ node tools/dev-server.mjs --reset   # http://localhost:8788/admin.html, konto te
 
 Publikacje trafiają do `.cache/dev-repo/leki.json`, prawdziwe repo nie jest ruszane.
 
+## Płatności (Polar.sh) – kod dostępu zamiast kont
+
+Bez dostępu aplikacja pokazuje listę leków, statusy, ostrzeżenia krytyczne i link do ChPL. Pełne karty (płyny, ilości, tempo, uwagi, praktyka) odblokowuje kod z zakupu. Worker wydaje `/data/leki.json` w wersji pełnej albo darmowej (`lib/dostep.js`), więc pełnej treści nie da się pobrać bez dostępu.
+
+- Kupujący: „Wypróbuj 14 dni za darmo” → kasa Polar → kod w mailu / portalu klienta → Info → „Mam kod dostępu”.
+- Kod działa na tylu urządzeniach, ile ustawisz w Polar (limit aktywacji). Aplikacja potwierdza go raz na dobę; bez internetu działa ostatnio pobrana wersja.
+- Po anulowaniu subskrypcji Polar wycofuje kod i przy najbliższym sprawdzeniu dostęp znika.
+- Zalogowani do panelu zawsze widzą pełne karty.
+
+Konfiguracja (Cloudflare → Settings → Variables and Secrets):
+
+| Zmienna | Wartość |
+|---|---|
+| `PLATNOSCI` | `on` – bez tego płatności są wyłączone i wszystko jest dostępne |
+| `POLAR_ORG_ID` | id organizacji z Polar (Settings → General) |
+| `POLAR_BENEFIT_ID` | id korzyści typu License Key (zalecane – kody z innych produktów nie przejdą) |
+| `POLAR_CHECKOUT_URL` | link do kasy (Checkout Link) produktu |
+| `CENA`, `PROBA_DNI` | opcjonalnie, tekst ceny i długość okresu próbnego pokazywane w aplikacji |
+| `POLAR_API` | opcjonalnie `https://sandbox-api.polar.sh` do testów w piaskownicy |
+
+Test lokalny z udawanym Polarem: `node tools/dev-server.mjs --reset --konto-testowe --platnosci` (kody: `WLEW-TEST-OK`, `WLEW-TEST-ODEBRANY`).
+
 ## Ręczna aktualizacja danych (lokalnie)
 
 ```bash
