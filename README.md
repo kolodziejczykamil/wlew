@@ -89,7 +89,20 @@ node tools/dev-server.mjs --reset   # http://localhost:8788/admin.html, konto te
 
 Publikacje trafiają do `.cache/dev-repo/leki.json`, prawdziwe repo nie jest ruszane.
 
-## Płatności (Polar.sh) – kod dostępu zamiast kont
+## Dostęp płatny – kody wydawane w panelu (np. po BLIK-u)
+
+Bez dostępu aplikacja pokazuje listę leków, statusy, ostrzeżenia krytyczne i link do ChPL. Pełne karty odblokowuje kod. Worker wydaje `/data/leki.json` w wersji pełnej albo darmowej (`lib/dostep.js`), więc pełnej treści nie da się pobrać bez kodu.
+
+- Panel → **Dostępy** → „Dodaj osobę”: opis, notatka (np. „BLIK 49 zł”), okres (14 dni / rok / do daty) → kod i gotowy SMS.
+- Osoba wpisuje kod w aplikacji: Info → „Mam kod dostępu”. Można przedłużyć, wyłączyć, wydać nowy kod, usunąć.
+- Lista jest w `data/dostepy.json` w prywatnym repo (poza `app/`, nie jest publiczna). Zapisany jest tylko skrót kodu i 4 ostatnie znaki; w historii commitów tylko id, bez imion.
+- Aplikacja potwierdza kod raz na dobę; wyłączony kod przestaje działać najpóźniej po 3 dniach. Zalogowani do panelu zawsze widzą pełne karty.
+
+Włączenie (Cloudflare → Settings → Variables and Secrets): `PLATNOSCI` = `on`, `KONTAKT_DOSTEP` = np. „Napisz do Marcina: tel. …, zapłacisz BLIK-iem”, opcjonalnie `CENA` (domyślnie „49 zł za rok”). Bez `PLATNOSCI=on` wszyscy widzą pełne karty.
+
+Test lokalny: `node tools/dev-server.mjs --reset --konto-testowe --platnosci`.
+
+### Opcjonalnie później: Płatności (Polar.sh) – kod dostępu zamiast kont
 
 Bez dostępu aplikacja pokazuje listę leków, statusy, ostrzeżenia krytyczne i link do ChPL. Pełne karty (płyny, ilości, tempo, uwagi, praktyka) odblokowuje kod z zakupu. Worker wydaje `/data/leki.json` w wersji pełnej albo darmowej (`lib/dostep.js`), więc pełnej treści nie da się pobrać bez dostępu.
 

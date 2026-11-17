@@ -225,9 +225,12 @@ function htmlPaywall() {
     <div class="lock">${ic("klodka")}<div><b>Pełna karta w wersji z dostępem</b><p class="small" style="margin-top:2px">Czym i w ile rozcieńczyć, jak szybko podać, uwagi i praktyka oddziału.</p></div></div>
     <div class="ghost-lines" aria-hidden="true"><i style="width:70%"></i><i style="width:90%"></i><i style="width:55%"></i></div>
     ${DOSTEP.kupUrl ? `<a class="btn btn-primary btn-block" href="${esc(DOSTEP.kupUrl)}" target="_blank" rel="noopener">Wypróbuj ${esc(DOSTEP.proba)} dni za darmo</a>
-      <p class="small" style="text-align:center">Potem ${esc(DOSTEP.cena)}. Anulujesz w każdej chwili.</p>` : ""}
-    <a class="btn btn-secondary btn-block" href="#dostep">Mam kod dostępu</a>
+      <p class="small" style="text-align:center">Potem ${esc(DOSTEP.cena)}. Anulujesz w każdej chwili.</p>` : htmlJakZdobyc()}
+    <a class="btn ${DOSTEP.kupUrl ? "btn-secondary" : "btn-primary"} btn-block" href="#dostep">Mam kod dostępu</a>
   </section>`;
+}
+function htmlJakZdobyc() {
+  return `<div class="notice n-info">${ic("info")}<div><b>Jak dostać kod:</b> ${esc(DOSTEP.cena)}${DOSTEP.kontakt ? `. ${esc(DOSTEP.kontakt.trim().replace(/[.!]?$/, "."))}` : "."} Kod przyjdzie SMS-em.</div></div>`;
 }
 function renderDostep(komunikat = "", blad = false) {
   const sek = $("dostep");
@@ -237,7 +240,8 @@ function renderDostep(komunikat = "", blad = false) {
   const info = komunikat ? `<div class="notice ${blad ? "n-danger" : "n-ok"}">${ic(blad ? "uwaga" : "ok")}<div>${esc(komunikat)}</div></div>` : "";
   if (DOSTEP.pelny) {
     const skad = DOSTEP.powod === "panel" ? "Masz pełny dostęp jako osoba z zespołu (zalogowana w panelu)." : "Masz pełny dostęp na tym urządzeniu.";
-    $("dostepTresc").innerHTML = `${info}<p class="access-ok">${ic("ok")} ${skad}</p>
+    const doKiedy = z?.wazneDo && DOSTEP.powod === "kod" ? `<p class="small">Dostęp ważny do ${esc(dataPL(z.wazneDo))}.</p>` : "";
+    $("dostepTresc").innerHTML = `${info}<p class="access-ok">${ic("ok")} ${skad}</p>${doKiedy}
       ${z ? `<p class="small">Kod: ${esc(z.kod.slice(0, 4))}…${esc(z.kod.slice(-4))}. Możesz go używać na kilku urządzeniach – jeśli zabraknie miejsca, usuń go stąd.</p>
       <button class="btn btn-ghost btn-block" type="button" id="usunKod">Usuń dostęp z tego urządzenia</button>` : ""}`;
     $("usunKod")?.addEventListener("click", usunKod);
@@ -246,10 +250,10 @@ function renderDostep(komunikat = "", blad = false) {
   $("dostepTresc").innerHTML = `${info}
     <p class="small">Bez dostępu widzisz listę leków, ostrzeżenia krytyczne i link do ChPL. Pełne karty odblokowuje kod z zakupu.</p>
     ${DOSTEP.kupUrl ? `<a class="btn btn-primary btn-block" href="${esc(DOSTEP.kupUrl)}" target="_blank" rel="noopener">Wypróbuj ${esc(DOSTEP.proba)} dni za darmo</a>
-      <p class="small">Potem ${esc(DOSTEP.cena)}. Kod dostępu przyjdzie mailem po zakupie.</p>` : ""}
+      <p class="small">Potem ${esc(DOSTEP.cena)}. Kod dostępu przyjdzie mailem po zakupie.</p>` : htmlJakZdobyc()}
     <form id="formKod" class="stack" style="gap:8px" novalidate>
       <label class="field"><span class="label">Kod dostępu</span>
-        <input class="input" id="poleKod" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="np. 1A2B3C4D-…" value="${esc(z?.kod || "")}"></label>
+        <input class="input" id="poleKod" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="np. K7QMA-3XPBR" value="${esc(z?.kod || "")}"></label>
       <button class="btn btn-secondary btn-block" type="submit" id="aktywujBtn">Aktywuj na tym urządzeniu</button>
     </form>`;
   $("formKod").addEventListener("submit", async (e) => {
@@ -259,7 +263,7 @@ function renderDostep(komunikat = "", blad = false) {
     $("aktywujBtn").disabled = true; $("aktywujBtn").textContent = "Sprawdzam…";
     const { ok, d } = await api("POST", { akcja: "aktywuj", kod, urzadzenie: nazwaUrzadzenia() }).catch(() => ({ ok: false, d: { blad: "Brak połączenia z internetem." } }));
     if (!ok) return renderDostep(d?.blad || "Nie udało się aktywować kodu.", true);
-    pamiec.set("kod", { kod, aktywacja: d.aktywacja, sprawdzono: Date.now() });
+    pamiec.set("kod", { kod, typ: d.typ, aktywacja: d.aktywacja || null, wazneDo: d.wazneDo || null, sprawdzono: Date.now() });
     await pobierzDostep(); await wczytaj();
     renderDostep("Gotowe – pełne karty są odblokowane na tym urządzeniu.");
   });
@@ -276,8 +280,8 @@ async function odswiezKod() {
   const z = zapisanyKod();
   if (!DOSTEP.platnosci || !z || !navigator.onLine) return false;
   if (DOSTEP.pelny && Date.now() - (z.sprawdzono || 0) < 864e5) return false;
-  const { ok, status, d } = await api("POST", { akcja: "odswiez", kod: z.kod, aktywacja: z.aktywacja }).catch(() => ({ ok: false, status: 0 }));
-  if (ok) { pamiec.set("kod", { ...z, sprawdzono: Date.now() }); return true; }
+  const { ok, status, d } = await api("POST", { akcja: "odswiez", kod: z.kod, aktywacja: z.aktywacja || undefined }).catch(() => ({ ok: false, status: 0 }));
+  if (ok) { pamiec.set("kod", { ...z, wazneDo: d?.wazneDo || z.wazneDo || null, sprawdzono: Date.now() }); return true; }
   if (status === 403 && d?.odebrany) { pamiec.set("kod", { kod: z.kod }); return true; } // zostaw kod w polu, żeby łatwo aktywować ponownie
   return false;
 }

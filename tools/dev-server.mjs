@@ -25,10 +25,11 @@ else {
   console.log("Konto testowe: login „test”, hasło „test-haslo-123”");
 }
 const env = { USERS, SESSION_SECRET: randomBytes(32).toString("hex"), GITHUB_TOKEN: "dev", GITHUB_REPO: "dev/wlew", GITHUB_BRANCH: "main" };
-// --platnosci: włącza płatności z udawanym Polarem. Kody testowe: WLEW-TEST-OK (2 urządzenia), WLEW-TEST-ODEBRANY.
+// --platnosci: włącza dostęp płatny (kody z panelu). --polar: dodatkowo udawany Polar z kodami WLEW-TEST-OK, WLEW-TEST-ODEBRANY.
 if (process.argv.includes("--platnosci")) {
-  Object.assign(env, { PLATNOSCI: "on", POLAR_ORG_ID: "org_test", POLAR_BENEFIT_ID: "ben_test", POLAR_API: "https://polar.mock", POLAR_CHECKOUT_URL: "https://polar.mock/checkout" });
-  console.log("Płatności: WŁĄCZONE (udawany Polar). Kody: WLEW-TEST-OK, WLEW-TEST-ODEBRANY");
+  Object.assign(env, { PLATNOSCI: "on", KONTAKT_DOSTEP: "Napisz do Marcina: tel. 600 000 000, zapłacisz BLIK-iem" });
+  if (process.argv.includes("--polar")) Object.assign(env, { POLAR_ORG_ID: "org_test", POLAR_BENEFIT_ID: "ben_test", POLAR_API: "https://polar.mock", POLAR_CHECKOUT_URL: "https://polar.mock/checkout" });
+  console.log("Dostęp płatny: WŁĄCZONY (kody wydawane w panelu → Dostępy)");
 }
 const polarKlucze = {
   "WLEW-TEST-OK": { status: "granted", limit: 2, aktywacje: new Map() },
@@ -56,21 +57,31 @@ async function udawanyPolar(url, opt) {
 }
 
 // ---------- udawany GitHub ----------
-const REPO = join(ROOT, ".cache/dev-repo/leki.json");
-mkdirSync(dirname(REPO), { recursive: true });
-if (!existsSync(REPO) || process.argv.includes("--reset")) writeFileSync(REPO, readFileSync(join(ROOT, "app/data/leki.json")));
+const REPO_DIR = join(ROOT, ".cache/dev-repo");
+const plikRepo = (sciezka) => join(REPO_DIR, sciezka.replace(/\//g, "__"));
+mkdirSync(REPO_DIR, { recursive: true });
+if (!existsSync(plikRepo("app/data/leki.json")) || process.argv.includes("--reset")) {
+  writeFileSync(plikRepo("app/data/leki.json"), readFileSync(join(ROOT, "app/data/leki.json")));
+  if (existsSync(plikRepo("data/dostepy.json"))) writeFileSync(plikRepo("data/dostepy.json"), JSON.stringify({ osoby: [] }));
+}
 const sha = (b) => createHash("sha1").update(b).digest("hex");
 const prawdziwyFetch = globalThis.fetch;
 globalThis.fetch = async (url, opt = {}) => {
   if (String(url).startsWith("https://polar.mock/")) return udawanyPolar(String(url), opt);
   if (!String(url).startsWith("https://api.github.com/")) return prawdziwyFetch(url, opt);
-  const tresc = readFileSync(REPO);
-  if ((opt.method || "GET") === "GET") return Response.json({ sha: sha(tresc), content: tresc.toString("base64") });
+  const sciezka = decodeURIComponent(new URL(url).pathname.split("/contents/")[1] || "");
+  const plik = plikRepo(sciezka);
+  const jest = existsSync(plik);
+  const tresc = jest ? readFileSync(plik) : null;
+  if ((opt.method || "GET") === "GET") {
+    if (!jest) return Response.json({ message: "Not Found" }, { status: 404 });
+    return Response.json({ sha: sha(tresc), content: tresc.toString("base64") });
+  }
   const body = JSON.parse(opt.body);
-  if (body.sha !== sha(tresc)) return Response.json({ message: "conflict" }, { status: 409 });
+  if ((jest ? sha(tresc) : undefined) !== body.sha) return Response.json({ message: "conflict" }, { status: 409 });
   const nowa = Buffer.from(body.content, "base64");
-  writeFileSync(REPO, nowa);
-  console.log(`[repo] commit: ${body.message}  (autor: ${body.author?.name})`);
+  writeFileSync(plik, nowa);
+  console.log(`[repo] ${sciezka}: ${body.message}  (autor: ${body.author?.name})`);
   return Response.json({ content: { sha: sha(nowa) } });
 };
 

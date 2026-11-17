@@ -538,14 +538,200 @@ function ekranPlik() {
   });
 }
 
+// ---------- ekran: dostępy (kody dla osób, które zapłaciły np. BLIK-iem) ----------
+let DOSTEPY = null;           // {platnosci, osoby}
+let nowoWydany = null;        // {osoba, kod} – kod pokazywany tylko raz, zaraz po utworzeniu
+let potwierdzUsunDostep = false;
+let filtrDostepow = "aktywne";
+const dzisISO = () => new Date().toISOString().slice(0, 10);
+const plusDni = (iso, dni) => { const d = new Date((iso || dzisISO()) + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + dni); return d.toISOString().slice(0, 10); };
+const plusRok = (iso) => { const d = new Date((iso || dzisISO()) + "T12:00:00Z"); d.setUTCFullYear(d.getUTCFullYear() + 1); return d.toISOString().slice(0, 10); };
+const aktywna = (o) => o.aktywny !== false && o.wazneDo >= dzisISO();
+const stanOsoby = (o) => o.aktywny === false ? ["Wyłączony", "t-brak"] : o.wazneDo < dzisISO() ? ["Wygasł", "t-nieiv"] : plusDni(dzisISO(), 14) >= o.wazneDo ? ["Kończy się", "t-szkic"] : ["Aktywny", "t-ok"];
+
+async function apiDostepy(dane) {
+  const r = await fetch("api/dostepy", {
+    method: dane ? "POST" : "GET", credentials: "same-origin", cache: "no-store",
+    headers: dane ? { "Content-Type": "application/json", "X-Wlew": "1" } : {},
+    body: dane ? JSON.stringify(dane) : undefined,
+  });
+  let d = null; try { d = await r.json(); } catch { /* */ }
+  if (!r.ok) throw new Error(d?.blad || (r.status === 404 ? "Ta funkcja działa tylko na serwerze (Cloudflare)." : `Błąd serwera (${r.status}).`));
+  return d;
+}
+async function zaladujDostepy() { DOSTEPY = await apiDostepy(); }
+
+function smsDlaOsoby(kod, o) {
+  return `Twój kod do aplikacji Wlew: ${kod}\nOtwórz ${location.origin}/ → zakładka Info → „Mam kod dostępu” i wpisz kod. Dostęp ważny do ${dataPL(o.wazneDo)}.`;
+}
+async function kopiuj(tekst, przycisk) {
+  try { await navigator.clipboard.writeText(tekst); przycisk.textContent = "Skopiowano"; }
+  catch { toast("Zaznacz tekst i skopiuj go ręcznie"); }
+}
+
+async function ekranDostepy() {
+  zakladki("dostepy");
+  nowyEkran("shell");
+  APP.innerHTML = `${pasek("Dostępy")}<div class="pad stack"><div class="empty">Wczytuję listę…</div></div>`;
+  try { await zaladujDostepy(); } catch (e) {
+    APP.innerHTML = `${pasek("Dostępy")}<div class="pad stack"><div class="notice n-danger">${ic("uwaga")}<div>${esc(e.message)}</div></div></div>`;
+    return;
+  }
+  const osoby = DOSTEPY.osoby;
+  const ile = { aktywne: osoby.filter(aktywna).length, wszystkie: osoby.length, wygasle: osoby.filter((o) => !aktywna(o)).length };
+  nowyEkran("shell");
+  APP.innerHTML = `
+    ${pasek("Dostępy")}
+    <div class="pad stack">
+      ${DOSTEPY.platnosci ? "" : `<div class="notice n-info">${ic("info")}<div>Dostęp płatny jest jeszcze <b>wyłączony</b> – teraz wszyscy widzą pełne karty. Kody możesz już wydawać; zaczną być potrzebne po włączeniu.</div></div>`}
+      <p class="small">Ktoś zapłacił (np. BLIK-iem)? Dodaj go tutaj i wyślij mu kod SMS-em. Kod wpisuje się w aplikacji w zakładce Info.</p>
+      <div class="stat-row">
+        <div class="stat"><b>${ile.aktywne}</b><span>aktywne</span></div>
+        <div class="stat"><b>${ile.wygasle}</b><span>wygasłe lub wyłączone</span></div>
+      </div>
+      <div class="search">${ic("szukaj")}<input id="q" type="search" placeholder="Szukaj osoby" autocomplete="off" aria-label="Szukaj osoby"></div>
+      <div class="chips-scroll">${[["aktywne", "Aktywne"], ["wygasle", "Wygasłe / wyłączone"], ["wszystkie", "Wszystkie"]].map(([k, n]) => `<button class="chip-f" data-f="${k}" aria-pressed="${k === filtrDostepow}">${n} · ${ile[k]}</button>`).join("")}</div>
+      <div id="lista"></div>
+    </div>
+    <a class="btn btn-primary fab" href="#dostep-nowy">${ic("plus")}Dodaj osobę</a>`;
+  const rysuj = () => {
+    const t = norm($("#q").value.trim());
+    const lista = osoby
+      .filter((o) => filtrDostepow === "wszystkie" || (filtrDostepow === "aktywne" ? aktywna(o) : !aktywna(o)))
+      .filter((o) => !t || norm(`${o.opis} ${o.notatka}`).includes(t))
+      .sort((a, b) => a.wazneDo.localeCompare(b.wazneDo));
+    $("#lista").innerHTML = lista.length
+      ? `<div class="list">${lista.map((o) => { const [n, k] = stanOsoby(o); return `<a class="row" href="#dostep-${esc(o.id)}" style="text-decoration:none;color:inherit">
+          <span class="row-main"><span class="row-title">${esc(o.opis)}</span><span class="row-sub">do ${esc(dataPL(o.wazneDo))} · kod …${esc(o.koncowka)}${o.notatka ? " · " + esc(o.notatka) : ""}</span></span>
+          <span class="row-aside"><span class="tag ${k}">${n}</span>${ic("dalej", "chev")}</span></a>`; }).join("")}</div>`
+      : `<div class="empty"><b>${osoby.length ? "Brak osób w tym widoku" : "Nikt jeszcze nie ma dostępu"}</b>${osoby.length ? "Zmień filtr." : "Dodaj pierwszą osobę przyciskiem na dole."}</div>`;
+  };
+  $("#q").addEventListener("input", rysuj);
+  APP.querySelectorAll("[data-f]").forEach((b) => b.addEventListener("click", () => { filtrDostepow = b.dataset.f; ekranDostepy(); }));
+  rysuj();
+}
+
+function ekranDostepNowy() {
+  zakladki("dostepy");
+  nowyEkran("shell");
+  let okres = "rok";
+  APP.innerHTML = `
+    ${pasek("Nowy dostęp", { wstecz: "#dostepy" })}
+    <div class="pad stack">
+      <section class="group">
+        <label class="field"><span class="label">Dla kogo</span><input class="input" id="dOpis" placeholder="np. Anna Kowalska, SOR Wrocław" autocomplete="off"></label>
+        <label class="field"><span class="label">Notatka (opcjonalnie)</span><input class="input" id="dNotatka" placeholder="np. BLIK 49 zł, 17.11" autocomplete="off"></label>
+        <p class="hint">Wystarczy imię i nazwisko albo inny opis, po którym rozpoznasz osobę. Nie wpisuj danych, których nie potrzebujesz.</p>
+      </section>
+      <section class="group">
+        <h3 class="group-title">Na jak długo</h3>
+        <div class="segmented" id="dOkres">${[["proba", "14 dni"], ["rok", "1 rok"], ["data", "Do daty"]].map(([v, n]) => `<button type="button" data-v="${v}" aria-pressed="${v === okres}">${n}</button>`).join("")}</div>
+        <label class="field" id="dDataPole" hidden><span class="label">Dostęp ważny do</span><input class="input" id="dData" type="date" min="${dzisISO()}" value="${plusRok()}"></label>
+        <p class="small" id="dPodsumowanie"></p>
+      </section>
+      <button class="btn btn-primary btn-block" type="button" id="dZapisz">${ic("ok")}Utwórz kod</button>
+    </div>`;
+  const wazneDo = () => okres === "proba" ? plusDni(dzisISO(), 14) : okres === "rok" ? plusRok() : $("#dData").value;
+  const odswiez = () => { $("#dDataPole").hidden = okres !== "data"; $("#dPodsumowanie").textContent = wazneDo() ? `Dostęp będzie działał do ${dataPL(wazneDo())} włącznie.` : ""; };
+  $("#dOkres").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; okres = b.dataset.v; $("#dOkres").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); odswiez(); });
+  $("#dData").addEventListener("input", odswiez);
+  odswiez();
+  $("#dOpis").focus();
+  $("#dZapisz").addEventListener("click", async () => {
+    const opis = $("#dOpis").value.trim();
+    if (!opis) { toast("Wpisz, dla kogo jest dostęp"); $("#dOpis").focus(); return; }
+    if (!wazneDo()) { toast("Wybierz datę"); return; }
+    $("#dZapisz").disabled = true; $("#dZapisz").textContent = "Zapisuję…";
+    try {
+      const w = await apiDostepy({ akcja: "dodaj", opis, notatka: $("#dNotatka").value.trim(), wazneDo: wazneDo() });
+      nowoWydany = { osoba: w.osoba, kod: w.kod };
+      location.hash = `dostep-${w.osoba.id}`;
+    } catch (e) { toast(e.message); $("#dZapisz").disabled = false; $("#dZapisz").innerHTML = `${ic("ok")}Utwórz kod`; }
+  });
+}
+
+async function ekranDostepOsoba(id) {
+  zakladki("dostepy");
+  if (!DOSTEPY) { try { await zaladujDostepy(); } catch (e) { toast(e.message); location.hash = "dostepy"; return; } }
+  const o = DOSTEPY.osoby.find((x) => x.id === id) || (nowoWydany?.osoba.id === id ? nowoWydany.osoba : null);
+  if (!o) { location.hash = "dostepy"; return; }
+  if (!DOSTEPY.osoby.includes(o)) DOSTEPY.osoby.push(o);
+  nowyEkran("shell");
+  const swiezyKod = nowoWydany?.osoba.id === id ? nowoWydany.kod : null;
+  const [stan, klasa] = stanOsoby(o);
+  APP.innerHTML = `
+    ${pasek(esc(o.opis), { wstecz: "#dostepy", prawa: `<span class="tag ${klasa}">${stan}</span>` })}
+    <div class="pad stack">
+      ${swiezyKod ? `<section class="group" style="border:1.5px solid var(--accent)">
+        <h3 class="group-title">Kod dostępu – zapisz go teraz</h3>
+        <div class="copy" style="font-size:1.4rem;text-align:center;letter-spacing:.08em" id="kodTekst">${esc(swiezyKod)}</div>
+        <p class="hint">Kod widać tylko teraz. Jeśli zginie, utworzysz nowy przyciskiem niżej.</p>
+        <label class="field"><span class="label">Gotowa wiadomość SMS</span><textarea class="textarea" id="sms" readonly>${esc(smsDlaOsoby(swiezyKod, o))}</textarea></label>
+        <button class="btn btn-primary btn-block" type="button" id="kopiujSms">Kopiuj wiadomość</button>
+      </section>` : ""}
+      <section class="group">
+        <h3 class="group-title">Dostęp</h3>
+        <p style="margin:0">Ważny do <b>${esc(dataPL(o.wazneDo))}</b> · kod kończy się na <b>${esc(o.koncowka)}</b></p>
+        <p class="small">Dodał(a): ${esc(o.dodal || "?")}, ${esc(dataPL(o.dodano))}${o.zmienil ? ` · ostatnia zmiana: ${esc(o.zmienil)}, ${esc(dataPL(o.zmieniono))}` : ""}</p>
+        <div class="stack" style="gap:8px">
+          <button class="btn btn-primary btn-block" type="button" data-a="przedluz">Przedłuż o rok (do ${esc(dataPL(plusRok(o.wazneDo > dzisISO() ? o.wazneDo : dzisISO())))})</button>
+          <button class="btn btn-secondary btn-block" type="button" data-a="przelacz">${o.aktywny === false ? "Włącz dostęp" : "Wyłącz dostęp"}</button>
+          <button class="btn btn-ghost btn-block" type="button" data-a="nowy-kod">Utwórz nowy kod (stary przestanie działać)</button>
+        </div>
+      </section>
+      <section class="group">
+        <label class="field"><span class="label">Dla kogo</span><input class="input" id="eOpis" value="${esc(o.opis)}"></label>
+        <label class="field"><span class="label">Notatka</span><input class="input" id="eNotatka" value="${esc(o.notatka || "")}" placeholder="np. BLIK 49 zł, 17.11"></label>
+        <label class="field"><span class="label">Ważny do</span><input class="input" id="eData" type="date" value="${esc(o.wazneDo)}"></label>
+        <button class="btn btn-secondary btn-block" type="button" data-a="zapisz">Zapisz zmiany</button>
+      </section>
+      <section class="group">
+        ${potwierdzUsunDostep
+          ? `<div class="confirm"><b>Usunąć dostęp dla ${esc(o.opis)}?</b><span>Kod przestanie działać najpóźniej w ciągu 3 dni. Jeśli osoba może wrócić, lepiej użyć „Wyłącz dostęp”.</span>
+             <div class="btns"><button class="btn btn-secondary" type="button" data-a="usun-nie">Anuluj</button><button class="btn btn-danger" type="button" data-a="usun-tak">${ic("kosz")}Usuń</button></div></div>`
+          : `<button class="btn btn-danger btn-block" type="button" data-a="usun">${ic("kosz")}Usuń z listy</button>`}
+      </section>
+      <p class="small">Zmiany działają od razu dla nowych aktywacji. Osoba, która już ma dostęp na telefonie, straci go najpóźniej po 3 dniach od wyłączenia.</p>
+    </div>`;
+  $("#kopiujSms")?.addEventListener("click", (e) => kopiuj($("#sms").value, e.currentTarget));
+  APP.addEventListener("click", async (e) => {
+    const b = e.target.closest("[data-a]"); if (!b) return;
+    const a = b.dataset.a;
+    if (a === "usun") { potwierdzUsunDostep = true; return ekranDostepOsoba(id); }
+    if (a === "usun-nie") { potwierdzUsunDostep = false; return ekranDostepOsoba(id); }
+    const zadanie = {
+      przedluz: { akcja: "zmien", id, wazneDo: plusRok(o.wazneDo > dzisISO() ? o.wazneDo : dzisISO()), aktywny: true },
+      przelacz: { akcja: "zmien", id, aktywny: o.aktywny === false },
+      "nowy-kod": { akcja: "nowy-kod", id },
+      zapisz: { akcja: "zmien", id, opis: $("#eOpis").value, notatka: $("#eNotatka").value, wazneDo: $("#eData").value },
+      "usun-tak": { akcja: "usun", id },
+    }[a];
+    if (!zadanie) return;
+    b.disabled = true;
+    try {
+      const w = await apiDostepy(zadanie);
+      potwierdzUsunDostep = false;
+      if (a === "usun-tak") { DOSTEPY.osoby = DOSTEPY.osoby.filter((x) => x.id !== id); toast("Usunięto dostęp"); location.hash = "dostepy"; return; }
+      Object.assign(o, w.osoba);
+      nowoWydany = w.kod ? { osoba: o, kod: w.kod } : null;
+      toast({ przedluz: "Przedłużono o rok", przelacz: o.aktywny === false ? "Wyłączono dostęp" : "Włączono dostęp", "nowy-kod": "Utworzono nowy kod", zapisz: "Zapisano" }[a]);
+      ekranDostepOsoba(id);
+    } catch (err) { toast(err.message); b.disabled = false; }
+  });
+}
+
 // ---------- trasy ----------
 function trasa() {
   const h = location.hash.slice(1);
   potwierdzUsun = h.startsWith("lek-") ? potwierdzUsun : false;
+  if (!h.startsWith("dostep-") || h === "dostep-nowy") { potwierdzUsunDostep = false; if (h !== "dostep-nowy") nowoWydany = h.startsWith("dostep-") ? nowoWydany : null; }
   if (h.startsWith("lek-")) ekranLek(h.slice(4));
   else if (h.startsWith("zmien-")) ekranSzukajProduktu(h.slice(6));
   else if (h === "dodaj") ekranSzukajProduktu(null);
   else if (h === "plik") ekranPlik();
+  else if (h === "dostepy") ekranDostepy();
+  else if (h === "dostep-nowy") ekranDostepNowy();
+  else if (h.startsWith("dostep-")) ekranDostepOsoba(h.slice(7));
   else ekranLista();
   window.scrollTo(0, 0);
 }

@@ -3,12 +3,13 @@
 // Handlery są w functions/api/*.js (ten sam kod działa też w tools/dev-server.mjs).
 import { daneLekow } from "./lib/dostep.js";
 import * as dostep from "./functions/api/dostep.js";
+import * as dostepy from "./functions/api/dostepy.js";
 import * as leki from "./functions/api/leki.js";
 import * as login from "./functions/api/login.js";
 import * as logout from "./functions/api/logout.js";
 import * as me from "./functions/api/me.js";
 
-const TRASY = { "/api/dostep": dostep, "/api/leki": leki, "/api/login": login, "/api/logout": logout, "/api/me": me };
+const TRASY = { "/api/dostep": dostep, "/api/dostepy": dostepy, "/api/leki": leki, "/api/login": login, "/api/logout": logout, "/api/me": me };
 
 export default {
   async fetch(request, env) {
