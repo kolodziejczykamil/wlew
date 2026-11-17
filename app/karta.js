@@ -73,14 +73,17 @@ export function renderKarta(k, { podglad = false } = {}) {
         ${k.przygotowanie?.length ? kroki(k.przygotowanie) : ""}
       </section>` : ""}
       ${k.tempo?.length ? `<section class="group"><h3 class="group-title">Podanie</h3>${kroki(k.tempo)}</section>` : ""}
-      ${zwykle.length ? `<section class="group"><h3 class="group-title">Uwagi</h3>${zwykle.map((u) => `<div class="note">${esc(u.tekst)}</div>`).join("")}</section>` : ""}`;
+      ${zwykle.length ? `<section class="group"><h3 class="group-title">Uwagi</h3>${zwykle.map((u) => `<div class="note">${esc(u.tekst)}</div>`).join("")}</section>` : ""}
+      ${k.praktyka?.length ? `<section class="group praktyka"><h3 class="group-title">Z praktyki oddziału · spoza ChPL</h3>
+        ${kroki(k.praktyka)}
+        <p class="small">Tych informacji nie ma w ChPL. Stosuj je tylko zgodnie z procedurą swojego oddziału.</p></section>` : ""}`;
   } else if (k.status !== "nie-iv" && k.status !== "brak-chpl") {
     tresc = `<div class="group"><p class="small">Karta w przygotowaniu. Do tego czasu korzystaj z ChPL.</p></div>`;
   }
 
   const wer = k.weryfikacja;
   const zrodloTxt = z.url
-    ? `ChPL ${esc(k.nazwa)}${k.punkty ? `, pkt ${esc(k.punkty)}` : ""}${z.pozwolenie ? `. Pozwolenie nr ${esc(z.pozwolenie)}` : ""}${z.podmiot ? `, ${esc(z.podmiot)}` : ""}.${z.dataChpl ? ` Wersja ChPL: ${esc(z.dataChpl)}.` : ""} Rejestr z dnia ${esc(dataPL(z.pobrano))}.`
+    ? `ChPL ${esc(k.nazwa)}${k.punkty ? `, pkt ${esc(k.punkty)}` : ""}${z.pozwolenie ? `. Pozwolenie nr ${esc(z.pozwolenie)}` : ""}${z.podmiot ? `, ${esc(z.podmiot.replace(/\.$/, ""))}` : ""}.${z.dataChpl ? ` Wersja ChPL: ${esc(z.dataChpl)}.` : ""} Rejestr z dnia ${esc(dataPL(z.pobrano))}.`
     : `Brak dokumentu źródłowego w rejestrze (stan z dnia ${esc(dataPL(z.pobrano))}).`;
 
   return `

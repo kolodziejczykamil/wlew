@@ -144,6 +144,8 @@ svg.ic { width: 20px; height: 20px; flex-shrink: 0; fill: none; stroke: currentC
 .steps li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); }
 .note { font-size: 0.92rem; padding: 8px 0; color: var(--ink); }
 .note + .note { border-top: 1px solid var(--line); }
+.praktyka { border: 1.5px dashed var(--line); box-shadow: none; background: transparent; }
+.praktyka .group-title { color: var(--inny); }
 .source p { margin: 0; font-size: 0.82rem; color: var(--ink-2); line-height: 1.5; }
 .source .verified { color: var(--ok); font-weight: 600; font-size: 0.86rem; }
 details.more summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.92rem; font-weight: 600; }

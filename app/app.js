@@ -159,6 +159,38 @@ $("kopiujEmail").addEventListener("click", async (e) => {
   try { await navigator.clipboard.writeText(CONFIG.emailBledow); e.target.textContent = "Skopiowano"; }
   catch { getSelection().selectAllChildren($("emailBledow")); }
 });
+// ---------- instalacja na ekranie głównym ----------
+const ua = navigator.userAgent;
+const zainstalowana = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+const iOS = /iPhone|iPad|iPod/.test(ua) || (ua.includes("Mac") && "ontouchend" in document);
+const wbudowana = /FBAN|FBAV|FB_IAB|Messenger|Instagram|Line\/|WhatsApp|GSA\//.test(ua);
+let monitInstalacji = null;
+function instrukcjaInstalacji() {
+  if (zainstalowana) return "<p>Wlew jest już zainstalowany na tym urządzeniu.</p>";
+  if (wbudowana) return `<p><b>Otwórz ten adres w ${iOS ? "Safari" : "Chrome"}.</b> Przeglądarka wbudowana w komunikator lub aplikację społecznościową nie pozwala dodać strony do ekranu głównego. W menu (⋯ lub ⋮) wybierz „Otwórz w ${iOS ? "Safari" : "przeglądarce"}”.</p>`;
+  if (iOS) return `<p>W <b>Safari</b> stuknij <b>Udostępnij</b> (kwadrat ze strzałką w górę), przewiń w dół i wybierz <b>„Do ekranu początkowego”</b>.</p><p class="small">Nie widać tej opcji? Na dole listy stuknij „Edytuj czynności” i dodaj ją.</p>`;
+  return `${monitInstalacji ? `<button class="btn btn-primary btn-block" type="button" id="instalujBtn">${ic("pobierz")}Zainstaluj Wlew</button>` : ""}
+    <p>W <b>Chrome</b> stuknij <b>⋮</b> w prawym górnym rogu i wybierz <b>„Dodaj do ekranu głównego”</b> albo <b>„Zainstaluj aplikację”</b>.</p>`;
+}
+function odswiezInstalacje() {
+  $("instrukcjaInstalacji").innerHTML = instrukcjaInstalacji() + `<p class="small">Po instalacji Wlew działa jak zwykła aplikacja, także bez internetu.</p>`;
+  $("instalujBtn")?.addEventListener("click", async () => {
+    monitInstalacji.prompt();
+    await monitInstalacji.userChoice.catch(() => null);
+    monitInstalacji = null; odswiezInstalacje();
+  });
+  const pokazBaner = !zainstalowana && !pamiec.get("banerInstalacjiZamkniety", false);
+  $("banerInstalacji").hidden = !pokazBaner;
+  if (pokazBaner) {
+    $("banerInstalacji").innerHTML = `${ic("pobierz")}<div style="flex:1">Dodaj Wlew do ekranu głównego – działa wtedy bez internetu. <a href="#info">Jak to zrobić</a></div>
+      <button class="icon-btn" type="button" id="zamknijBaner" aria-label="Zamknij" style="height:24px;min-width:24px;padding:0;color:inherit">${ic("x")}</button>`;
+    $("zamknijBaner").addEventListener("click", () => { pamiec.set("banerInstalacjiZamkniety", true); $("banerInstalacji").hidden = true; });
+  }
+}
+window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); monitInstalacji = e; odswiezInstalacje(); });
+window.addEventListener("appinstalled", () => { pamiec.set("banerInstalacjiZamkniety", true); odswiezInstalacje(); });
+odswiezInstalacje();
+
 const pasek = $("gornyPasek");
 window.addEventListener("scroll", () => pasek.classList.toggle("scrolled", scrollY > 4), { passive: true });
 window.addEventListener("hashchange", trasa);

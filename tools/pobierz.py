@@ -164,6 +164,7 @@ def karta_z_listy(poz):
         punkty="",
         status=poz["status"] if poz.get("status") in ("brak-chpl", "nie-iv") else "szkic",
         weryfikacja=None,
+        praktyka=[],
         uwagaAdmin=poz.get("uwaga") or "",
         ukryty=False,
     )

@@ -238,6 +238,12 @@ function formularz(k) {
     </section>
 
     <section class="group">
+      <h3 class="group-title">Z praktyki oddziału (spoza ChPL)</h3>
+      ${lista("praktyka", "Np. Na SOR często rozcieńczany w Optilyte (PWE)")}
+      <p class="hint">Rzeczy stosowane w praktyce, których nie ma w ChPL. W aplikacji są osobno, z dopiskiem „spoza ChPL”. Nie wpływają na zatwierdzenie karty.</p>
+    </section>
+
+    <section class="group">
       <h3 class="group-title">Notatka wewnętrzna</h3>
       <textarea class="textarea" data-pole="uwagaAdmin" placeholder="Widoczna tylko w panelu" style="min-height:64px">${esc(k.uwagaAdmin)}</textarea>
     </section>

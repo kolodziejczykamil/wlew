@@ -3,7 +3,7 @@
 //
 //   node tools/dev-server.mjs            → http://localhost:8788  (panel: /admin.html)
 //
-// Konta: z tools/.konta.json (tools/konta.py), a gdy go nie ma – konto testowe test / test-haslo-123.
+// Konta: z tools/.konta.json (tools/konta.py), a gdy go nie ma albo jest flaga --konto-testowe – konto test / test-haslo-123.
 import { createHash, pbkdf2Sync, randomBytes } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createServer } from "node:http";
@@ -17,7 +17,7 @@ const TYPY = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; cha
 // ---------- konta ----------
 let USERS;
 const plikKont = join(ROOT, "tools/.konta.json");
-if (existsSync(plikKont)) USERS = readFileSync(plikKont, "utf-8");
+if (existsSync(plikKont) && !process.argv.includes("--konto-testowe")) USERS = readFileSync(plikKont, "utf-8");
 else {
   const sol = randomBytes(16);
   const h = pbkdf2Sync("test-haslo-123", sol, 100000, 32, "sha256");
@@ -64,7 +64,8 @@ createServer(async (req, res) => {
     }
     let p = normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, "");
     if (p.endsWith("/")) p += "index.html";
-    const plik = join(ROOT, "app", p);
+    let plik = join(ROOT, "app", p);
+    if (!extname(plik) && existsSync(plik + ".html")) plik += ".html"; // jak Cloudflare: /admin → admin.html
     if (!plik.startsWith(join(ROOT, "app")) || !existsSync(plik)) { res.writeHead(404).end("404"); return; }
     res.writeHead(200, { "Content-Type": TYPY[extname(plik)] || "application/octet-stream", "Cache-Control": "no-cache" });
     res.end(readFileSync(plik));
